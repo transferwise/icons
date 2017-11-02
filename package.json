@@ -11,7 +11,8 @@
     "build:styles": "cleancss -o dist/icons.min.css src/styles.css",
     "test": "npm-run-all check-release-to-github lint",
     "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
-    "lint": "eslint index.js src"
+    "lint": "eslint index.js src",
+    "release-to-github": "release-to-github-with-changelog"
   },
   "repository": {
     "type": "git",
