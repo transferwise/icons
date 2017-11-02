@@ -1,3 +1,3 @@
-const createSprite = require('./src/createSprite');
+const { createSprite } = require('./src/utils/sprite');
 
 createSprite();

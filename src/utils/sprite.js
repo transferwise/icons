@@ -3,8 +3,9 @@ const path = require('path');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 
+const { ICONS_PATH, getIconFileNames } = require('./icon');
 
-const ICONS_PATH = path.join(__dirname, 'icons');
+
 const SPRITE_PATH = 'dist';
 const SPRITE_FILENAME = 'sprite.svg';
 
@@ -21,9 +22,9 @@ function createSprite() {
 
   const spriter = new SVGSpriter(config);
 
-  const iconFiles = fs.readdirSync(ICONS_PATH);
+  const iconFileNames = getIconFileNames();
 
-  iconFiles.forEach((fileName) => {
+  iconFileNames.forEach((fileName) => {
     spriter.add(
       path.join(ICONS_PATH, fileName),
       fileName,
@@ -45,4 +46,4 @@ function createSprite() {
   });
 }
 
-module.exports = createSprite;
+module.exports = { createSprite };
