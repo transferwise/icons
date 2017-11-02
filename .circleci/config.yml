@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: test
+          command: npm test
+      - run:
+          name: build
+          command: npm run build
+      - run:
+          name: release
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ];
+              then npm run release-to-github;
+            fi
+      - run:
+          name: publish
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ];
+              then npm publish --access=public;
+            fi
