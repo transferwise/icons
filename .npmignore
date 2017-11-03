@@ -1,8 +1,9 @@
-node_mocules/
-src/
-.eslintrc
-.gitignore
-.npmignore
-circle.yml
-index.js
-package-lock.json
+/demo/
+/node_mocules/
+/src/
+/.eslintrc
+/.gitignore
+/.npmignore
+/circle.yml
+/index.js
+/package-lock.json

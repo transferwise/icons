@@ -4,11 +4,12 @@
   "description": "TransferWise SVG icons",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build",
+    "start": "npm run build && npm run demo:build",
     "build": "npm-run-all build:clean build:sprite build:styles",
     "build:clean": "rimraf dist",
     "build:sprite": "node index",
     "build:styles": "cleancss -o dist/icons.min.css src/styles.css",
+    "demo:build": "node src/demo",
     "test": "npm-run-all check-release-to-github lint",
     "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
     "lint": "eslint index.js src",
