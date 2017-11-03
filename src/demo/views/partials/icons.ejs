@@ -1,7 +1,12 @@
 <ul>
   <% names.forEach((name) => { %>
     <li>
-      <%= name %>
+      <svg class="tw-icon">
+        <use xlink:href="#<%= name %>"></use>
+      </svg>
+      <small>
+        <%= name %>
+      </small>
     </li>
   <% }); %>
 </ul>
