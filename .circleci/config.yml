@@ -33,3 +33,10 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ];
               then npm publish --access=public;
             fi
+      - run:
+          name: demo
+          command: |
+            npm run demo:build
+            git config --global user.email "circleci@transferwise.com"
+            git config --global user.name "CircleCI"
+            npm run demo:deploy
