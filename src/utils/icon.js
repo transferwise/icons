@@ -5,7 +5,7 @@ const fs = require('fs');
 const ICONS_PATH = path.join(__dirname, '../icons');
 
 function getIconFileNames() {
-  const iconFiles = fs.readdirSync(ICONS_PATH);
+  const iconFiles = fs.readdirSync(ICONS_PATH).filter(file => file.endsWith('.svg'));
 
   return iconFiles;
 }
