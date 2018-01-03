@@ -1,3 +1,9 @@
+# v0.4.0
+## Exposes SVG string as an UMD script
+
+Change introduced here:
+https://github.com/transferwise/create-svg-icon-sprite/releases/tag/v0.2.0
+
 # v0.3.1
 ## Use separated `create-svg-icon-sprite` package
 
