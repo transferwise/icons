@@ -1,9 +1,10 @@
+/.circleci/
 /demo/
 /node_modules/
-/src/
 /.eslintrc
 /.gitignore
 /.npmignore
-/circle.yml
-/index.js
+/buildDemo.js
+/createSprite.js
 /package-lock.json
+/styles.css

@@ -1,15 +1,15 @@
 {
   "name": "@transferwise/icons",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "TransferWise SVG icons",
   "main": "index.js",
   "scripts": {
     "start": "npm run build && npm run demo:build",
     "build": "npm-run-all build:clean build:sprite build:styles",
     "build:clean": "rimraf dist",
-    "build:sprite": "node index",
-    "build:styles": "cleancss -o dist/icons.min.css src/styles.css",
-    "demo:build": "node src/demo",
+    "build:sprite": "node createSprite",
+    "build:styles": "cleancss -o dist/icons.min.css styles.css",
+    "demo:build": "node buildDemo",
     "demo:deploy": "gh-pages -d demo",
     "test": "npm-run-all check-release-to-github lint",
     "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
@@ -29,13 +29,10 @@
   "homepage": "https://github.com/transferwise/icons#readme",
   "dependencies": {
     "clean-css-cli": "^4.1.10",
-    "ejs": "^2.5.7",
+    "create-svg-icon-sprite": "^0.1.0",
     "gh-pages": "^1.0.0",
-    "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.1",
-    "release-to-github-with-changelog": "^1.1.5",
-    "rimraf": "^2.6.2",
-    "svg-sprite": "^1.3.7"
+    "release-to-github-with-changelog": "^1.1.5"
   },
   "devDependencies": {
     "eslint": "^4.10.0",

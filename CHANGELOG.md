@@ -1,3 +1,9 @@
+# v0.3.1
+## Use separated `create-svg-icon-sprite` package
+
+The https://github.com/transferwise/create-svg-icon-sprite package was separated
+to simplify this repository for designers and to allow other people/companies to use the same process.
+
 # v0.3.0
 ## Initial set of icons
 
