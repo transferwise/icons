@@ -1,11 +1,15 @@
 .tw-icon {
   width: 24px;
   height: 24px;
+
+  fill: currentColor;
 }
 
 .tw-icon-sm {
   width: 16px;
   height: 16px;
+
+  margin-bottom: -2px; /* to align with body text */
 }
 
 .tw-icon-md {

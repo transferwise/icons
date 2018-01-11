@@ -1,3 +1,11 @@
+# v0.6.0
+## Makes icons current color, aligns small icons with text
+
+The `.tw-icon` will now by default be current color so it's easily changeable
+by giving utility classes to parents, f.e. `.text-info` in Bootstrap.
+
+The `.tw-icon-sm` now has a `-2px` margin to align it nicely with body text.
+
 # v0.5.0
 ## Adds entry point for module-based environments, adds README, fixes `tw-icon-xl` and `tw-icon-xxl`
 
