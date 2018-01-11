@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/icons",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "TransferWise SVG icons",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "demo:deploy": "gh-pages -d demo",
     "test": "npm-run-all check-release-to-github lint",
     "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
-    "lint": "eslint index.js src",
+    "lint": "eslint scripts",
     "release-to-github": "release-to-github-with-changelog"
   },
   "repository": {
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/transferwise/icons#readme",
   "dependencies": {
     "clean-css-cli": "^4.1.10",
-    "create-svg-icon-sprite": "^0.2.0",
+    "create-svg-icon-sprite": "^1.0.0",
     "gh-pages": "^1.0.0",
     "npm-run-all": "^4.1.1",
     "release-to-github-with-changelog": "^1.1.5"

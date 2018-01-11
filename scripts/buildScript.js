@@ -1,3 +1,3 @@
-const { buildScript } = require('create-svg-icon-sprite');
+const { buildSpriteScript } = require('create-svg-icon-sprite');
 
-buildScript();
+buildSpriteScript();

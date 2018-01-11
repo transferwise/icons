@@ -1,3 +1,13 @@
+# v0.5.0
+## Adds entry point for module-based environments, adds README, fixes `tw-icon-xl` and `tw-icon-xxl`
+
+You can now
+```js
+import { iconSprite } from '@transferwise/icons';
+```
+
+Also, `.tw-icon-xl` is now `40px` and `.tw-icon-xxl` is now `48px`.
+
 # v0.4.0
 ## Exposes SVG string as an UMD script
 
