@@ -1,3 +1,11 @@
+# v0.7.0
+## Adds controls for modifying icon sizes and color in demo
+
+Change introduced here:
+https://github.com/transferwise/create-svg-icon-sprite/releases/tag/v1.1.0
+
+![image](https://user-images.githubusercontent.com/5443561/34956743-5f968d44-fa22-11e7-8ecb-82e8a6ad729e.png)
+
 # v0.6.0
 ## Makes icons current color, aligns small icons with text
 
