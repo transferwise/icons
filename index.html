@@ -10,7 +10,29 @@
   
 
   <style>
-    ul {
+    :root {
+  --icon-color: black;
+  --card-color: white;
+  --icon-size: 24px;
+}
+
+dl {
+  display: inline-block;
+
+  margin-right: 1.5em;
+}
+
+dd {
+  margin-left: 0;
+}
+
+.demo-icon {
+  fill: var(--icon-color);
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+}
+
+ul {
   list-style: none;
 
   padding: 0;
@@ -34,6 +56,9 @@ li {
   background-color: #fff;
   border-radius: 3px;
   text-align: center;
+
+  background-color: var(--card-color);
+  color: var(--icon-color);
 }
 
 @supports (display: grid) {
@@ -98,6 +123,117 @@ li {
   
 
     <main>
+      <div class="demo-controls">
+  <dl>
+    <dt>
+      Icon color
+    </dt>
+    <dd>
+      <input type="color" class="demo-icon-color-input" value="#000000" />
+    </dd>
+  </dl>
+  <dl>
+    <dt>
+      Card color
+    </dt>
+    <dd>
+      <input type="color" class="demo-card-color-input" value="#ffffff" />
+    </dd>
+  </dl>
+  <dl>
+    <dt>Size</dt>
+    <dd>
+      <div>
+          
+            <input
+              type="radio"
+              id="iconSize8"
+              name="iconSize"
+              class="demo-icon-size-radio"
+              value="8"
+              
+            />
+            <label for="iconSize8" class="m-r-1">
+              8
+            </label>
+          
+            <input
+              type="radio"
+              id="iconSize16"
+              name="iconSize"
+              class="demo-icon-size-radio"
+              value="16"
+              
+            />
+            <label for="iconSize16" class="m-r-1">
+              16
+            </label>
+          
+            <input
+              type="radio"
+              id="iconSize24"
+              name="iconSize"
+              class="demo-icon-size-radio"
+              value="24"
+               checked 
+            />
+            <label for="iconSize24" class="m-r-1">
+              24
+            </label>
+          
+            <input
+              type="radio"
+              id="iconSize32"
+              name="iconSize"
+              class="demo-icon-size-radio"
+              value="32"
+              
+            />
+            <label for="iconSize32" class="m-r-1">
+              32
+            </label>
+          
+            <input
+              type="radio"
+              id="iconSize40"
+              name="iconSize"
+              class="demo-icon-size-radio"
+              value="40"
+              
+            />
+            <label for="iconSize40" class="m-r-1">
+              40
+            </label>
+          
+            <input
+              type="radio"
+              id="iconSize48"
+              name="iconSize"
+              class="demo-icon-size-radio"
+              value="48"
+              
+            />
+            <label for="iconSize48" class="m-r-1">
+              48
+            </label>
+          
+            <input
+              type="radio"
+              id="iconSize64"
+              name="iconSize"
+              class="demo-icon-size-radio"
+              value="64"
+              
+            />
+            <label for="iconSize64" class="m-r-1">
+              64
+            </label>
+          
+      </div>
+    </dd>
+  </dl>
+</div>
+
       <ul>
   
     <li>
@@ -1012,6 +1148,44 @@ li {
 </ul>
     </main>
   </div>
+
+  <script>
+    (() => {
+  listenToIconColorChanges();
+  listenToCardColorChanges();
+  listenToIconSizeChanges();
+
+  function listenToIconColorChanges() {
+    updateColorInputVariableOnChange('.demo-icon-color-input', '--icon-color');
+  }
+
+  function listenToCardColorChanges() {
+    updateColorInputVariableOnChange('.demo-card-color-input', '--card-color');
+  }
+
+  function listenToIconSizeChanges() {
+    updateRadioVariableOnChange('.demo-icon-size-radio', '--icon-size');
+  }
+
+  function updateColorInputVariableOnChange(selector, variable) {
+    const input = document.querySelector(selector);
+    input.addEventListener('input', (event) => {
+      document.documentElement.style.setProperty(variable, event.target.value);
+    }, false);
+  }
+
+  function updateRadioVariableOnChange(selector, variable) {
+    const radios = document.querySelectorAll(selector);
+    radios.forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        document.documentElement.style.setProperty(variable, `${event.target.value}px`);
+      }, false);
+    });
+  }
+})();
+
+
+  </script>
 </body>
 
 </html>
