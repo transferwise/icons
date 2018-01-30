@@ -3,42 +3,102 @@ jobs:
   build:
     docker:
       - image: circleci/node:latest
-    branches:
-      ignore: gh-pages
     steps:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install-npm-wee
+          name: Install dependencies
           command: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - ./node_modules
+            - node_modules
+  test:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: test
+          name: Test
           command: npm test
+  build-package:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: build
+          name: Build
           command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+  release:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - attach_workspace:
+          at: .
       - run:
-          name: release
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ];
-              then npm run release-to-github;
-            fi
+          name: Release to GitHub
+          command: npm run release-to-github
       - run:
-          name: publish
+          name: Publish on npm
           command: |
             echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-            if [ "${CIRCLE_BRANCH}" == "master" ];
-              then npm publish --access=public;
-            fi
+            npm publish --access=public
+  demo:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - attach_workspace:
+          at: .
       - run:
-          name: demo
+          name: Build demo
+          command: npm run build-demo
+      - run:
+          name: Deploy demo
           command: |
-            npm run demo:build
             git config --global user.email "circleci@transferwise.com"
             git config --global user.name "CircleCI"
-            npm run demo:deploy
+            npm run deploy-demo
+
+workflows:
+  version: 2
+  install-test-build-release-and-build-demo:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: gh-pages
+      - test:
+          requires:
+            - build
+      - build-package:
+          requires:
+            - build
+      - release:
+          requires:
+            - test
+            - build-package
+          filters:
+            branches:
+              only: master
+      - demo:
+          requires:
+            - test
+            - build-package
+          filters:
+            branches:
+              only: master
