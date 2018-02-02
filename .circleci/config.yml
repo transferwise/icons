@@ -38,7 +38,7 @@ jobs:
           root: .
           paths:
             - dist
-  release:
+  release-to-github:
     docker:
       - image: circleci/node:latest
     steps:
@@ -50,11 +50,41 @@ jobs:
       - run:
           name: Release to GitHub
           command: npm run release-to-github
+  publish-on-npm:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
       - run:
           name: Publish on npm
           command: |
             echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
             npm publish --access=public
+  deploy-to-aws:
+    docker:
+      - image: circleci/python:latest
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install AWS CLI
+          command: pip install awscli --upgrade --user
+      - run:
+          name: Create versioned directory
+          command: |
+            PACKAGE_VERSION=`python -c "import json; print(json.load(open('package.json'))[u'version'])"`
+            mkdir -p versioned/latest
+            cp -a dist/. versioned/latest
+            mkdir -p versioned/${PACKAGE_VERSION}
+            cp -a dist/. versioned/${PACKAGE_VERSION}
+      - run:
+          name: Deploy versioned directory to S3
+          command: |
+            export PATH=~/.local/bin:$PATH
+            aws s3 sync versioned s3://tw-frontend-assets/icons --acl public-read
   demo:
     docker:
       - image: circleci/node:latest
@@ -88,7 +118,21 @@ workflows:
       - build-package:
           requires:
             - build
-      - release:
+      - release-to-github:
+          requires:
+            - test
+            - build-package
+          filters:
+            branches:
+              only: master
+      - publish-on-npm:
+          requires:
+            - test
+            - build-package
+          filters:
+            branches:
+              only: master
+      - deploy-to-aws:
           requires:
             - test
             - build-package

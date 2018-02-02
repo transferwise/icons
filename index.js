@@ -1,6 +1,7 @@
-const iconSprite = require('./dist/svg-icon-sprite');
+const svgIconSprite = require('./dist/svg-icon-sprite');
+const svgIconSpriteVersion = require('./dist/svg-icon-sprite-version');
 
 module.exports = {
-  iconSprite,
+  svgIconSprite,
+  svgIconSpriteVersion,
 };
-
