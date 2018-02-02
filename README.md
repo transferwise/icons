@@ -13,6 +13,17 @@ The SVG icon sprite and demo are built using [create-svg-icon-sprite](https://gi
 
 [A helpful general guide for SVG icon sprites - CSSTricks](https://css-tricks.com/svg-sprites-use-better-icon-fonts/)
 
+### CDN
+
+The assets are available at:
+
+<https://daw291njkc3ao.cloudfront.net/icons/{version}/sprite.svg> (SVG sprite itself)
+<https://daw291njkc3ao.cloudfront.net/icons/{version}/svg-icon-sprite.js> (sprite string script)
+<https://daw291njkc3ao.cloudfront.net/icons/{version}/svg-icon-sprite-version.js> (sprite version script)
+<https://daw291njkc3ao.cloudfront.net/icons/{version}/icons.min.css> (styles)
+
+Where `{version}` is either the package version or `latest`.
+
 ### Installation
 
 `npm install --save @transferwise/icons`

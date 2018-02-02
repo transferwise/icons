@@ -1,3 +1,15 @@
+# v0.8.0
+## Adds versioned deployment to AWS
+
+The assets will be deployed to:
+
+<https://daw291njkc3ao.cloudfront.net/icons/0.8.0/sprite.svg> (SVG sprite itself)
+<https://daw291njkc3ao.cloudfront.net/icons/0.8.0/svg-icon-sprite.js> (sprite string script)
+<https://daw291njkc3ao.cloudfront.net/icons/0.8.0/svg-icon-sprite-version.js> (sprite version script)
+<https://daw291njkc3ao.cloudfront.net/icons/0.8.0/icons.min.css> (styles)
+
+Where `0.8.0` is the version or `latest`.
+
 # v0.7.0
 ## Adds controls for modifying icon sizes and color in demo
 
