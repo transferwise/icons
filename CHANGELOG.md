@@ -1,3 +1,7 @@
+# v0.8.1
+
+Adds `minus` icon
+
 # v0.8.0
 ## Adds versioned deployment to AWS
 
