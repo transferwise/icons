@@ -1,6 +1,7 @@
-# v0.8.1
+# v0.9.0
+## Adds `minus` icon
 
-Adds `minus` icon
+Adds `minus` icon, created from `top-up` (plus sign)
 
 # v0.8.0
 ## Adds versioned deployment to AWS
