@@ -1,3 +1,33 @@
+# v0.10.0
+## Adds exposing React modules for every icon
+
+We now build a React module for every icon in the `icons` directory and place them in `react/` directory
+using `create-svg-icon-sprite` release: https://github.com/transferwise/create-svg-icon-sprite/releases/tag/v1.2.1
+
+The icons can be imported individually, allowing us to minimize our app sizes.
+
+For example:
+```js
+...
+import TransferIcon from '@transferwise/icons/react/transfer';
+
+const YourComponent = () => (
+  ...
+  <TransferIcon size="sm" />
+  ...
+);
+```
+
+The `size` prop should be one of the sizes defined in `styles.css` (`sm`, `md`, `lg`, `xl`, or `xxl`),
+which should also be imported for consistency.
+
+The component also passes any other `className` and `style` values to the icon, so you can style them further,
+for example for a large blue icon:
+```js
+<TransferIcon size="lg" className="text-info" />
+```
+
+
 # v0.9.0
 ## Adds `minus` icon
 
