@@ -13,6 +13,31 @@ The SVG icon sprite and demo are built using [create-svg-icon-sprite](https://gi
 
 [A helpful general guide for SVG icon sprites - CSSTricks](https://css-tricks.com/svg-sprites-use-better-icon-fonts/)
 
+### React
+
+The icons can be imported individually, allowing us to minimize our app sizes.
+
+For example:
+```js
+...
+import TransferIcon from '@transferwise/icons/react/transfer';
+
+const YourComponent = () => (
+  ...
+  <TransferIcon size="sm" />
+  ...
+);
+```
+
+The `size` prop should be one of the sizes defined in `styles.css` (`sm`, `md`, `lg`, `xl`, or `xxl`),
+which should also be imported for consistency.
+
+The component also passes any other `className` and `style` values to the icon, so you can style them further,
+for example for a large blue icon:
+```js
+<TransferIcon size="lg" className="text-info" />
+```
+
 ### CDN
 
 The assets are available at:
