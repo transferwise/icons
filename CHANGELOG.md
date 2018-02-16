@@ -1,3 +1,6 @@
+# v0.11.0
+## Adds `pin` icon
+
 # v0.10.0
 ## Adds exposing React modules for every icon
 
