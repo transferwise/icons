@@ -1,3 +1,6 @@
+# v0.11.1
+## Fixes react folder missing from NPM package
+
 # v0.11.0
 ## Adds `pin` icon
 

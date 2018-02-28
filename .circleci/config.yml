@@ -38,6 +38,7 @@ jobs:
           root: .
           paths:
             - dist
+            - react
   release-to-github:
     docker:
       - image: circleci/node:latest
@@ -57,9 +58,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run:
-          name: Build
-          command: npm run build
       - run:
           name: Publish on npm
           command: |
