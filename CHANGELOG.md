@@ -1,3 +1,9 @@
+# v0.11.2
+## Adds inline-block display to .tw-icon
+
+As we're using a newer version of `create-svg-icon-sprite`,
+the SVG itself does not have the property any more.
+
 # v0.11.1
 ## Fixes react folder missing from NPM package
 

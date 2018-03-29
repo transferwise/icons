@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/icons",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "description": "TransferWise SVG icons",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,7 @@
   "homepage": "https://github.com/transferwise/icons#readme",
   "dependencies": {
     "clean-css-cli": "^4.1.10",
-    "create-svg-icon-sprite": "^1.1.0",
+    "create-svg-icon-sprite": "^1.2.0",
     "gh-pages": "^1.0.0",
     "npm-run-all": "^4.1.1",
     "release-to-github-with-changelog": "^1.1.5"
