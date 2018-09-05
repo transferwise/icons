@@ -1,3 +1,6 @@
+# v0.12.0
+## Adds `instagram` icon
+
 # v0.11.2
 ## Adds inline-block display to .tw-icon
 
