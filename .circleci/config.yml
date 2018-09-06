@@ -1,73 +1,67 @@
+defaults: &defaults
+  working_directory: ~/icons
+  docker:
+    - image: circleci/node:latest
+
 version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/node:latest
+  dependencies:
+    <<: *defaults
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          command: npm ci
+      - persist_to_workspace:
+          root: .
           paths:
-            - node_modules
+            - '*'
   test:
-    docker:
-      - image: circleci/node:latest
+    <<: *defaults
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+      - attach_workspace:
+          at: .
       - run:
           name: Test
           command: npm test
   build-package:
-    docker:
-      - image: circleci/node:latest
+    <<: *defaults
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+      - attach_workspace:
+          at: .
       - run:
           name: Build
           command: npm run build
       - persist_to_workspace:
           root: .
           paths:
-            - dist
-            - react
-  release-to-github:
-    docker:
-      - image: circleci/node:latest
+            - '*'
+  release:
+    <<: *defaults
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - attach_workspace:
           at: .
       - run:
           name: Release to GitHub
-          command: npm run release-to-github
-  publish-on-npm:
-    docker:
-      - image: circleci/node:latest
+          command: |
+            mkdir ~/.ssh
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
+            npm run release-to-github
+  publish:
+    <<: *defaults
     steps:
-      - checkout
+      - run:
+          name: Setup npm token
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN_PUBLISH" >> ~/.npmrc
       - attach_workspace:
           at: .
       - run:
           name: Publish on npm
-          command: |
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-            npm publish --access=public
+          command: npm publish --access=public
   deploy-to-aws:
     docker:
       - image: circleci/python:latest
     steps:
-      - checkout
       - attach_workspace:
           at: .
       - run:
@@ -87,12 +81,8 @@ jobs:
             export PATH=~/.local/bin:$PATH
             aws s3 sync versioned s3://tw-frontend-assets/icons --acl public-read
   demo:
-    docker:
-      - image: circleci/node:latest
+    <<: *defaults
     steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - attach_workspace:
           at: .
       - run:
@@ -101,32 +91,36 @@ jobs:
       - run:
           name: Deploy demo
           command: |
+            mkdir ~/.ssh
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
             git config --global user.email "circleci@transferwise.com"
             git config --global user.name "CircleCI"
             npm run deploy-demo
 
 workflows:
   version: 2
-  install-test-build-release-and-build-demo:
+  dependencies-test-build-release-and-build-demo:
     jobs:
-      - build:
+      - dependencies:
           filters:
             branches:
               ignore: gh-pages
       - test:
           requires:
-            - build
+            - dependencies
       - build-package:
           requires:
-            - build
-      - release-to-github:
+            - dependencies
+      - release:
+          context: frontend-publish
           requires:
             - test
             - build-package
           filters:
             branches:
               only: master
-      - publish-on-npm:
+      - publish:
+          context: frontend-publish
           requires:
             - test
             - build-package
@@ -141,6 +135,7 @@ workflows:
             branches:
               only: master
       - demo:
+          context: frontend-publish
           requires:
             - test
             - build-package
