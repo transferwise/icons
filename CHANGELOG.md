@@ -1,3 +1,7 @@
+# v0.13.0
+## Adds `linkedin` icon
+
+
 # v0.12.0
 ## Adds `instagram` icon
 
