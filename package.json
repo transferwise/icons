@@ -4,7 +4,7 @@
   "description": "TransferWise SVG icons",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all build demo:build",
+    "start": "npm-run-all build build-demo",
     "build": "npm-run-all clean build-sprite build-styles build-script build-version-script build-react-modules",
     "clean": "rimraf dist",
     "build-sprite": "node scripts/createSprite",
