@@ -1,3 +1,7 @@
+# v0.13.1
+## Fixes fast-flag causing error in React
+Because of a `path` contained a `class` attribute which is forbidden in React.
+
 # v0.13.0
 ## Adds `linkedin` icon
 
