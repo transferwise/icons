@@ -1,3 +1,7 @@
+# v0.13.2
+## Fixes security issue
+Bumps npm-run-all version which fixes security issue raised by flatmap-stream
+
 # v0.13.1
 ## Fixes fast-flag causing error in React
 Because of a `path` contained a `class` attribute which is forbidden in React.
