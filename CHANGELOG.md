@@ -1,3 +1,9 @@
+# v0.14.0
+## Move dependencies to devDependencies
+
+- When installing in a consumer, we were installing `phantomjs` as well, since `create-svg-icon-sprite` was depending on it. However this project has zero dependencies, everything can be a devDependency
+- Adds `eslint-config`
+
 # v0.13.2
 ## Fixes security issue
 Bumps npm-run-all version which fixes security issue raised by flatmap-stream
@@ -8,7 +14,6 @@ Because of a `path` contained a `class` attribute which is forbidden in React.
 
 # v0.13.0
 ## Adds `linkedin` icon
-
 
 # v0.12.0
 ## Adds `instagram` icon
