@@ -1,3 +1,8 @@
+# v1.0.0
+## Increases weight of Close icon
+
+Change weight of Close icon to match most common usage on all platforms. We're aware of the inconsistency it brings to the current set, it's an interim solution while we redesign all icons.
+
 # v0.14.0
 ## Move dependencies to devDependencies
 
