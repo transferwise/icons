@@ -1,3 +1,6 @@
+# v1.1.0
+## Adds `copy` icon
+
 # v1.0.0
 ## Increases weight of Close icon
 
