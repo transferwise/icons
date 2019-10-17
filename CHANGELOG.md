@@ -1,3 +1,6 @@
+# v1.2.0
+## Adds `myinfo` icon
+
 # v1.1.0
 ## Adds `copy` icon
 
