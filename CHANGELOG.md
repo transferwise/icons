@@ -1,3 +1,6 @@
+# v1.3.0
+## Adds `back` icon
+
 # v1.2.0
 ## Adds `myinfo` icon
 
