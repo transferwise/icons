@@ -1,5 +1,5 @@
 # v1.4.0
-## Adds `direct-debits` icon
+## Adds `recurring` icon
 
 # v1.3.0
 ## Adds `back` icon
