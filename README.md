@@ -109,7 +109,8 @@ in your components for consistency.
 
 ## Adding/removing/changing icons
 
-1. Add/remove/change 24x24 SVG icon(s) in the `icons` folder.
+1. If adding, minify your 24x24 SVG icon(s) (https://jakearchibald.github.io/svgomg/ using Precision 1)
+1. Add/remove/change icon(s) in the `icons` folder.
 1. Change `package.json` version (if doing multiple of these, follow the first one that applies):  
 Removing an icon: _major_ release, f.e. `1.2.3 => 2.0.0`  
 Adding an icon: _minor_ release, f.e. `1.2.3 => 1.3.0`  
