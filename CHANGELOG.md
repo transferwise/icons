@@ -1,3 +1,6 @@
+# v1.5.0
+## Adds `messenger` icon
+
 # v1.4.0
 ## Adds `recurring` icon
 
