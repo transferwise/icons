@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "ES5",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "lib": ["es6"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": [
+    "./scripts/**/*",
+    "./bin/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}
