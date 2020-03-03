@@ -2,7 +2,12 @@
   "name": "@transferwise/icons",
   "version": "1.5.0",
   "description": "TransferWise SVG icons",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "files": [
+    "lib"
+  ],
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "run-s build:*",
     "build:clean": "rimraf lib",
