@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "jsx": "react",
+    "sourceMap": true,
+    "declaration": true,
+    "target": "ES5",
+    "module": "ES6",
+    "moduleResolution": "Node",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": [
+    "./src/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "scripts",
+  ]
+}
