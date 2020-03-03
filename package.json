@@ -31,5 +31,6 @@
     "svgson": "^4.0.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
-  }
+  },
+  "prettier": "@transferwise/eslint-config/.prettierrc.js"
 }
