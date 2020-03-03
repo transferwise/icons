@@ -21,8 +21,6 @@ export async function readSvgFile(path) {
   const svgsonOptions = { camelcase: true, transformNode }
   const AST = parseSync(optimizedSvgContent.data, svgsonOptions);
 
-  console.log(AST);
-
   return stringify(AST.children);
 }
 
