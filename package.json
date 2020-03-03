@@ -4,19 +4,7 @@
   "description": "TransferWise SVG icons",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all build build-demo",
-    "build": "npm-run-all clean build-sprite build-styles build-script build-version-script build-react-modules",
-    "clean": "rimraf dist",
-    "build-sprite": "node scripts/createSprite",
-    "build-styles": "cleancss -o dist/icons.min.css styles.css",
-    "build-script": "node scripts/buildScript",
-    "build-version-script": "node scripts/buildVersionScript",
-    "build-react-modules": "node scripts/buildReactModules",
-    "build-demo": "node scripts/buildDemo",
-    "deploy-demo": "gh-pages -d demo",
-    "test": "npm-run-all check-release-to-github lint",
     "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
-    "lint": "eslint scripts",
     "release-to-github": "release-to-github-with-changelog"
   },
   "repository": {
@@ -32,34 +20,9 @@
   "homepage": "https://github.com/transferwise/icons#readme",
   "dependencies": {},
   "devDependencies": {
-    "@transferwise/eslint-config": "^0.4.0",
-    "babel-eslint": "^10.0.1",
-    "clean-css-cli": "^4.3.0",
-    "create-svg-icon-sprite": "^1.2.2",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.13.0",
-    "gh-pages": "^2.0.1",
-    "husky": "^2.3.0",
-    "lint-staged": "^8.1.7",
+    "@transferwise/eslint-config": "^5.0.3",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.17.1",
+    "prettier": "^1.19.1",
     "release-to-github-with-changelog": "^1.2.2"
-  },
-  "prettier": "@transferwise/eslint-config/.prettierrc.js",
-  "eslintConfig": {
-    "extends": "@transferwise",
-    "rules": {
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true
-        }
-      ]
-    }
   }
 }
