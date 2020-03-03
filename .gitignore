@@ -9,3 +9,9 @@
 
 # OSX
 .DS_Store
+
+# Generated react icon components and ts files
+src
+
+# Generated icons map JSON
+icons.json
