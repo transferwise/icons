@@ -8,7 +8,10 @@
     "build:clean": "rimraf lib",
     "build:react-components": "yarn run build-react-components",
     "build:format": "yarn prettier ./src/**/*.{tsx,ts} --write",
-    "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
+    "build:rollup": "rollup -c",
+    "rollup:watch": "rollup -cw",
+    "test": "run-s test:*",
+    "test:check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
     "release-to-github": "release-to-github-with-changelog",
     "build-react-components": "ts-node --project ./tsconfig.scripts.json ./scripts/build-react-components.ts"
   },
