@@ -15,3 +15,6 @@ src
 
 # Generated icons map JSON
 icons.json
+
+# ignore build result
+lib
