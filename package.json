@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "run-s build:*",
-    "build:clean": "rimraf lib src && mkdir lib && mkdir -p src/components",
+    "build:clean": "rimraf lib build && mkdir lib && mkdir -p build/components",
     "build:react-components": "yarn run build-react-components",
     "build:format": "yarn run lint-fix",
-    "test": "npm run lint",
-    "lint": "eslint './{scripts,src}/**/*.{ts,tsx}'",
-    "lint-fix": "npm run lint -- --fix",
+    "test": "yarn run lint",
+    "lint": "eslint './{scripts,build}/**/*.{ts,tsx}'",
+    "lint-fix": "yarn run lint --fix",
     "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
     "release-to-github": "release-to-github-with-changelog",
     "build-react-components": "ts-node --project ./tsconfig.scripts.json ./scripts/build-react-components.ts"

@@ -2,7 +2,7 @@ import glob from 'glob';
 import { createIconsMap, writeFile, Icon, getSvgContent, GENERATED_CODE_COMMENT } from './utils';
 
 const ICONS_DIR = 'icons';
-const TARGET_DIR = 'src';
+const TARGET_DIR = 'build';
 
 const allIconsPaths = glob.sync(`${ICONS_DIR}/**/*.svg`);
 const icons = createIconsMap(allIconsPaths);
@@ -79,13 +79,13 @@ const indexContent = [];
 Object.keys(icons).forEach(id => {
   indexContent.push(`export * from './${icons[id].name}';`);
 });
-writeFile(`src/components/index.ts`, indexContent.join('\n'));
+writeFile(`${TARGET_DIR}/components/index.ts`, indexContent.join('\n'));
 
-// Create index file in ./src folder for exporting everyhting from ./src/components
-writeFile('src/index.ts', `${GENERATED_CODE_COMMENT}\nexport * from "./components";`);
+// Create index file in ./${TARGET_DIR} folder for exporting everyhting from ./${TARGET_DIR}/components
+writeFile(`${TARGET_DIR}/index.ts`, `${GENERATED_CODE_COMMENT}\nexport * from "./components";`);
 
 // Create types file that exports common types
 writeFile(
-  'src/types.ts',
+  `${TARGET_DIR}/types.ts`,
   `${GENERATED_CODE_COMMENT}\nexport type IconSize = "16" | "24" | 16 | 24;`,
 );

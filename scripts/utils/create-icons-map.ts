@@ -38,7 +38,7 @@ export const createIconsMap = (paths): { [key: string]: Icon } => {
 
     icons[name].svgFiles[variant][size] = path;
 
-    writeFile('./src/icons.json', JSON.stringify(icons, null, 2));
+    writeFile('./build/icons.json', JSON.stringify(icons, null, 2));
   });
 
   return icons;

@@ -10,7 +10,7 @@
   },
   "include": [
     "./scripts/**/*",
-    "./src/**/*"
+    "./build/**/*"
   ],
   "exclude": [
     "node_modules",

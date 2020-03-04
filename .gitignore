@@ -11,4 +11,4 @@
 .DS_Store
 
 # Generated react icon components and ts files
-src
+build
