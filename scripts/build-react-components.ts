@@ -51,8 +51,6 @@ export const ${icon.componentName}: FunctionComponent<${icon.componentName}IconP
     </span>
   )
 }
-
-export default ${icon.componentName}
 `
 }
 
