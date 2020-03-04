@@ -14,13 +14,6 @@ export interface Icon {
   }
 }
 
-export const cleanAndCreateFolder = (path) => {
-  if (fs.existsSync(path)) {
-    rimraf.sync(path)
-  }
-  fs.mkdirSync(path);
-}
-
 export const validatePathToIcon = path => {
   // TODO: add validation here, throw error if the file name is not in a supported format
 }

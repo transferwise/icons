@@ -1,11 +1,8 @@
 import glob from 'glob';
-import { createIconsMap, writeFile, Icon, getSvgContent, GENERATED_CODE_COMMENT, cleanAndCreateFolder } from './utils';
+import { createIconsMap, writeFile, Icon, getSvgContent, GENERATED_CODE_COMMENT } from './utils';
 
 const ICONS_DIR = 'icons';
 const TARGET_DIR = 'src';
-
-cleanAndCreateFolder(TARGET_DIR);
-cleanAndCreateFolder(`${TARGET_DIR}/components`);
 
 const allIconsPaths = glob.sync(`${ICONS_DIR}/**/*.svg`);
 const icons = createIconsMap(allIconsPaths);
