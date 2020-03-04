@@ -60,9 +60,7 @@ export const ${icon.componentName}: FunctionComponent<${
 `;
 };
 
-// Iterate through icons and generate React components for all of them
-// wrapped in iife due to async await usage in SVG optimization step
-(async (): Promise<void> => {
+const createReactComponentFiles = async (): Promise<void> => {
   Object.keys(icons).forEach(async id => {
     const icon = icons[id];
     const svgContent = await getSvgContent(icon);
@@ -72,7 +70,9 @@ export const ${icon.componentName}: FunctionComponent<${
     console.info(`React component created for: ${icon.componentName}`);
     writeFile(`${TARGET_DIR}/components/${icon.name}.tsx`, content);
   });
-})();
+};
+
+createReactComponentFiles();
 
 // Create index file that exports all the icons in the components folder
 const indexContent = [];
