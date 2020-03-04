@@ -18,7 +18,7 @@ import React, { FunctionComponent } from 'react';
 import { IconSize } from '../types';
 
 export interface ${icon.componentName}IconProps {
-  size: IconSize, ${hasFillVariant ? `filled: boolean;` : ''}
+  size?: IconSize, ${hasFillVariant ? `filled?: boolean;` : ''}
 }
 
 export const ${icon.componentName}: FunctionComponent<${icon.componentName}IconProps> = ({ size = 16 ${hasFillVariant ? `, filled = false` : ''} }) => {
