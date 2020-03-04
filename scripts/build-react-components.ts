@@ -26,7 +26,7 @@ export const ${icon.componentName}: FunctionComponent<${
   }IconProps> = ({ size = 16 ${hasFillVariant ? `, filled = false` : ''} }) => {
   return (
     <span className='tw-icon tw-icon-${icon.name}'>
-      <svg width={String(size)} height={String(size)} >
+      <svg width={String(size)} height={String(size)} fill="currentColor">
         { Number(size) === 16 ${hasFillVariant ? '&& filled === false' : ''} && (
           <>
             ${svgContent.outline[16]}

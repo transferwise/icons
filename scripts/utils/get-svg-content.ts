@@ -10,13 +10,14 @@ interface AstNode {
 
 const svgo = new SVGO();
 
+/**
+ * Transform function that is applied for each node in the AST
+ * Removes hardocded fill attributes to clean SVG paths
+ * @param node
+ */
 const transformNode = (node: AstNode): AstNode => {
-  // Remove hardocded fill attributes and replace them with 'currentColor'
   const newNode = node;
   delete newNode.attributes.fill;
-  Object.defineProperty(newNode.attributes, 'fill', {
-    value: 'currentColor',
-  });
 
   return newNode;
 };
