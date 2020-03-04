@@ -40,9 +40,12 @@ export const getSvgContent = async (icon: Icon): Promise<{ [key: string]: string
   const svgContent = {};
 
   await variants.forEach(async variant => {
+    const sizes = Object.keys(icon.svgFiles[variant]);
     svgContent[variant] = {};
-    svgContent[variant][16] = await readSvgFile(icon.svgFiles[variant][16]);
-    svgContent[variant][24] = await readSvgFile(icon.svgFiles[variant][24]);
+
+    await sizes.forEach(async size => {
+      svgContent[variant][size] = await readSvgFile(icon.svgFiles[variant][size]);
+    });
   });
 
   return svgContent;
