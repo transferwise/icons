@@ -7,10 +7,11 @@
     "build": "run-s build:*",
     "build:clean": "rimraf lib build && mkdir lib && mkdir -p build/components",
     "build:react-components": "yarn run build-react-components",
-    "build:format": "yarn run lint-fix",
+    "build:format": "yarn prettier --write",
     "test": "yarn run lint",
-    "lint": "eslint './{scripts,build}/**/*.{ts,tsx}'",
+    "lint": "eslint './scripts/**/*.{ts,tsx}'",
     "lint-fix": "yarn run lint --fix",
+    "prettier": "prettier './build/**/*.{ts,tsx}'",
     "check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
     "release-to-github": "release-to-github-with-changelog",
     "build-react-components": "ts-node --project ./tsconfig.scripts.json ./scripts/build-react-components.ts"
@@ -49,5 +50,6 @@
     "svgson": "^4.0.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
-  }
+  },
+  "prettier": "@transferwise/eslint-config/.prettierrc.js"
 }
