@@ -6,7 +6,6 @@ export const createIconsMap = (paths): { [key: string]: Icon } => {
 
   paths.forEach(path => {
     // TODO: validate icon name and meta data (svg file name) to follow convention
-    // validatePathToIcon(path);
     const pathFragments = path.split('/');
     const name = pathFragments[1];
     const meta = pathFragments[2];
