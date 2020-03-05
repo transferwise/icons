@@ -46,7 +46,7 @@ jobs:
           command: |
             mkdir ~/.ssh
             ssh-keyscan github.com >> ~/.ssh/known_hosts
-            yarn run release-to-github
+            yarn release-to-github
 
   publish-prerelease:
     <<: *defaults

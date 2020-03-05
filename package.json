@@ -16,7 +16,7 @@
     "build:rollup": "rollup -c",
     "rollup:watch": "rollup -cw",
     "test": "run-s test:*",
-    "test:lint": "yarn run lint",
+    "test:lint": "yarn lint",
     "test:check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
     "lint": "eslint './scripts/**/*.{ts,tsx}'",
     "lint-fix": "yarn run lint --fix",
