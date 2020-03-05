@@ -24,7 +24,6 @@ jobs:
       - run:
           name: Test
           command: yarn test
-
   build:
     <<: *defaults
     steps:
@@ -37,7 +36,6 @@ jobs:
           root: .
           paths:
             - '*'
-
   release:
     <<: *defaults
     steps:
@@ -76,7 +74,7 @@ jobs:
 
 workflows:
   version: 2
-  deps-test-build-publish-release:
+  install-test-build-publish-release:
     jobs:
       - dependencies:
           filters:
@@ -90,13 +88,13 @@ workflows:
             - test
             - dependencies
       - publish-prerelease:
-        context: frontend-publish
-        requires:
-          - test
-          - build
-        filters:
-          branches:
-            only: beta
+          context: frontend-publish
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: beta
       - publish:
           context: frontend-publish
           requires:
@@ -106,10 +104,10 @@ workflows:
             branches:
               only: master
       - release:
-        context: frontend-publish
-        requires:
-          - test
-          - build
-        filters:
-          branches:
-            only: master
+          context: frontend-publish
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: master
