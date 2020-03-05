@@ -12,3 +12,6 @@
 
 # Generated react icon components and ts files
 build
+
+# icons library modules
+lib
