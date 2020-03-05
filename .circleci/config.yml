@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/icons
   docker:
-    - image: circleci/node:latest
+    - image: circleci/node:lts
 
 version: 2
 jobs:
@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm ci
+          command: yarn install --frozen-lockfile --ignore-engines
       - persist_to_workspace:
           root: .
           paths:
@@ -23,15 +23,15 @@ jobs:
           at: .
       - run:
           name: Test
-          command: npm test
-  build-package:
+          command: yarn test
+  build:
     <<: *defaults
     steps:
       - attach_workspace:
           at: .
       - run:
           name: Build
-          command: npm run build
+          command: yarn build
       - persist_to_workspace:
           root: .
           paths:
@@ -46,7 +46,20 @@ jobs:
           command: |
             mkdir ~/.ssh
             ssh-keyscan github.com >> ~/.ssh/known_hosts
-            npm run release-to-github
+            yarn release-to-github
+
+  publish-prerelease:
+    <<: *defaults
+    steps:
+      - run:
+          name: Setup npm token
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN_PUBLISH" >> ~/.npmrc
+      - attach_workspace:
+          at: .
+      - run:
+          name: Publish prerelease version on npm with beta tag
+          command: npm publish --tag beta
+
   publish:
     <<: *defaults
     steps:
@@ -58,48 +71,10 @@ jobs:
       - run:
           name: Publish on npm
           command: npm publish --access=public
-  deploy-to-aws:
-    docker:
-      - image: circleci/python:latest
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: Install AWS CLI
-          command: pip install awscli --upgrade --user
-      - run:
-          name: Create versioned directory
-          command: |
-            PACKAGE_VERSION=`python -c "import json; print(json.load(open('package.json'))[u'version'])"`
-            mkdir -p versioned/latest
-            cp -a dist/. versioned/latest
-            mkdir -p versioned/${PACKAGE_VERSION}
-            cp -a dist/. versioned/${PACKAGE_VERSION}
-      - run:
-          name: Deploy versioned directory to S3
-          command: |
-            export PATH=~/.local/bin:$PATH
-            aws s3 sync versioned s3://tw-frontend-assets/icons --acl public-read
-  demo:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: Build demo
-          command: npm run build-demo
-      - run:
-          name: Deploy demo
-          command: |
-            mkdir ~/.ssh
-            ssh-keyscan github.com >> ~/.ssh/known_hosts
-            git config --global user.email "circleci@transferwise.com"
-            git config --global user.name "CircleCI"
-            npm run deploy-demo
 
 workflows:
   version: 2
-  dependencies-test-build-release-and-build-demo:
+  install-test-build-publish-release:
     jobs:
       - dependencies:
           filters:
@@ -108,37 +83,31 @@ workflows:
       - test:
           requires:
             - dependencies
-      - build-package:
+      - build:
           requires:
+            - test
             - dependencies
-      - release:
+      - publish-prerelease:
           context: frontend-publish
           requires:
             - test
-            - build-package
+            - build
           filters:
             branches:
-              only: master
+              only: beta
       - publish:
           context: frontend-publish
           requires:
             - test
-            - build-package
+            - build
           filters:
             branches:
               only: master
-      - deploy-to-aws:
-          requires:
-            - test
-            - build-package
-          filters:
-            branches:
-              only: master
-      - demo:
+      - release:
           context: frontend-publish
           requires:
             - test
-            - build-package
+            - build
           filters:
             branches:
               only: master

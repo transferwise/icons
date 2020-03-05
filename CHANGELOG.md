@@ -1,3 +1,12 @@
+# v2.0.0-beta.1
+## ICONS v2
+
+The new TransferWise icon set
+Changes:
+- Replace old icons 
+- Update build process with custom scripts
+- Add rollup to create UMD and ES bundles
+
 # v1.5.0
 ## Adds `messenger` icon
 
