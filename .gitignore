@@ -9,3 +9,6 @@
 
 # OSX
 .DS_Store
+
+# Generated react icon components and ts files
+build
