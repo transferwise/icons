@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/icons",
-  "version": "1.5.0",
+  "version": "2.0.0-beta.1",
   "description": "TransferWise SVG icons",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
