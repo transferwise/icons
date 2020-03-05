@@ -10,6 +10,7 @@
   },
   "include": [
     "./scripts/**/*",
+    "./rollup.config.js"
   ],
   "exclude": [
     "node_modules",
