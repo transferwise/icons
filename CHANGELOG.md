@@ -1,3 +1,20 @@
+# v2.0.0-beta.2
+## Add angularJS support
+
+The library now distributes an AngularJS module for all the icons.
+To use it in your angularJs app, just import the module 
+```js
+import { TwIconsModule } from "@transferwise/icons/lib/angular";
+
+angular.module("app", [TwIconsModule]);
+```
+
+and in your angularJs template use the icons
+```html
+<tw-activity-icon size="16" filled="true"></tw-activity-icon>
+<tw-alert-circle-icon size="24"></tw-alert-circle-icon>
+```
+
 # v2.0.0-beta.1
 ## ICONS v2
 

@@ -1,8 +1,12 @@
 /* eslint-disable fp/no-mutation */
 import { createIconComponentName, writeFile, Icon } from '.';
 
-export const createIconsMap = (paths): { [key: string]: Icon } => {
-  const icons: { [key: string]: Icon } = {};
+export interface IconsMap {
+  [key: string]: Icon;
+}
+
+export const createIconsMap = (paths): IconsMap => {
+  const icons: IconsMap = {};
 
   paths.forEach(path => {
     // TODO: validate icon name and meta data (svg file name) to follow convention
@@ -26,7 +30,6 @@ export const createIconsMap = (paths): { [key: string]: Icon } => {
       return;
     }
 
-    // push new size if it's not in the sizes array yet
     if (!icons[name].sizes.includes(size)) {
       icons[name].sizes.push(size);
     }

@@ -2,6 +2,8 @@ import fs from 'fs';
 
 export * from './create-icons-map';
 export * from './get-svg-content';
+export * from './react-components';
+export * from './angularjs-components';
 
 export const GENERATED_CODE_COMMENT = `// This is an automatically generetad file, please don't edit it`;
 
