@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/icons",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "description": "TransferWise SVG icons",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -10,8 +10,8 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "run-s build:*",
-    "build:clean": "rimraf lib build && mkdir lib && mkdir -p build/components",
-    "build:react-components": "yarn run build-react-components",
+    "build:clean": "rimraf lib build && mkdir lib && mkdir -p build/components && mkdir -p build/angular/components",
+    "build:icon-components": "yarn run build-icon-components",
     "build:format": "yarn prettier --write",
     "build:rollup": "rollup -c",
     "rollup:watch": "rollup -cw",
@@ -20,9 +20,9 @@
     "test:check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
     "lint": "eslint './scripts/**/*.{ts,tsx}'",
     "lint-fix": "yarn run lint --fix",
-    "prettier": "prettier './build/**/*.{ts,tsx}'",
+    "prettier": "prettier './build/**/*.{ts,tsx,js}'",
     "release-to-github": "release-to-github-with-changelog",
-    "build-react-components": "ts-node --project ./tsconfig.scripts.json ./scripts/build-react-components.ts"
+    "build-icon-components": "ts-node --project ./tsconfig.scripts.json ./scripts/build-icon-components.ts"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,8 @@
   },
   "homepage": "https://github.com/transferwise/icons#readme",
   "peerDependencies": {
-    "react": "*"
+    "react": "*",
+    "angular": "*"
   },
   "devDependencies": {
     "@transferwise/eslint-config": "^5.0.3",
