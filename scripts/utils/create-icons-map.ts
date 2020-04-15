@@ -30,7 +30,6 @@ export const createIconsMap = (paths): IconsMap => {
       return;
     }
 
-    // push new size if it's not in the sizes array yet
     if (!icons[name].sizes.includes(size)) {
       icons[name].sizes.push(size);
     }

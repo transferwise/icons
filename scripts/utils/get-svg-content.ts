@@ -44,7 +44,7 @@ export const readSvgFile = async (path: string): Promise<SvgContent> => {
 
   return {
     react: stringify(ASTforReact.children),
-    angular: stringify(ASTforAngular),
+    angular: stringify(ASTforAngular.children),
   };
 };
 
