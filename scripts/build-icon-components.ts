@@ -4,7 +4,9 @@ import {
   writeFile,
   getSvgContent,
   createReactIconComponentContent,
+  createAngularJsIconComponentContent,
   generateAdditionalReactFiles,
+  generateAngularJsIconModuleContent,
 } from './utils';
 
 const ICONS_DIR = 'icons';
@@ -18,14 +20,19 @@ const generateIconComponentFiles = async (): Promise<void> => {
     const icon = icons[id];
     const svgContent = await getSvgContent(icon);
     const reactComponentContent = createReactIconComponentContent(icon, svgContent);
-    // eslint-disable-next-line no-console
-    console.info(`React component created for: ${icon.componentName}`);
     writeFile(`${TARGET_DIR}/components/${icon.name}.tsx`, reactComponentContent);
 
-    // TODO: generate angularJs components here
+    const angularComponentContent = createAngularJsIconComponentContent(icon, svgContent);
+    writeFile(
+      `${TARGET_DIR}/angular/components/${icon.name}-icon.component.js`,
+      angularComponentContent,
+    );
+
+    // eslint-disable-next-line no-console
+    console.info(`Components created for: ${icon.componentName}`);
   });
 };
 
 generateIconComponentFiles();
-
 generateAdditionalReactFiles(icons, TARGET_DIR);
+generateAngularJsIconModuleContent(icons, TARGET_DIR);
