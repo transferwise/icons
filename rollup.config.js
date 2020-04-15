@@ -3,7 +3,7 @@ import analyze from 'rollup-plugin-analyzer';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-export default {
+const reactBundle = {
   input: 'build/index.ts',
   output: [
     {
@@ -30,3 +30,19 @@ export default {
     analyze({ summaryOnly: true }),
   ],
 };
+
+const angularBundle = {
+  input: 'build/angular/index.js',
+  output: {
+    file: 'lib/angular/index.js',
+    name: 'index.js',
+    format: 'umd',
+    globals: {
+      angular: 'angular',
+    },
+  },
+  external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
+  plugins: [terser(), analyze({ summaryOnly: true })],
+};
+
+export default [reactBundle, angularBundle];
