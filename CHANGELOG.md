@@ -1,3 +1,12 @@
+# v2.0.0-beta.3
+## Fix angularJS component names
+The `-icon` suffix was missing for each angular icon, when they were added to the `twIconsModule` angular module. 
+Now the module declaration includes the `Icon` suffix at the end
+```js
+.component("tw${icon.componentName}Icon", ${icon.componentName}IconComponent)
+...
+```
+
 # v2.0.0-beta.2
 ## Add angularJS support
 

@@ -65,7 +65,7 @@ export const generateAngularJsIconModuleContent = (icons: IconsMap, targetDir: s
       `import { ${icon.componentName}IconComponent } from "./components/${key}-icon.component"`,
     );
     moduleComponents.push(
-      `.component("tw${icon.componentName}", ${icon.componentName}IconComponent)`,
+      `.component("tw${icon.componentName}Icon", ${icon.componentName}IconComponent)`,
     );
   });
 
