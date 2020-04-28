@@ -57,6 +57,29 @@ angular.module('your-app-name', [TwIconsModule]);
 
 https://www.figma.com/file/DUUEFGnfEAWFO2KEYDIL7mfr/TransferWise-Theme?node-id=2113%3A0
 
+# Contributing
+
+1. Develop
+1. For a single-run check of version match and linting errors, run `npm test`.
+1. **Bump version number in `package.json` according to [semver](http://semver.org/) and add an item that a release will be based on to `CHANGELOG.md`**.
+1. Submit your pull request from a feature branch and get code reviewed.
+1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to merge with rebase.
+1. Code will automatically be released to [GitHub](https://github.com/transferwise/icons/releases) and published to [npm](https://www.npmjs.com/package/@transferwise/icons) with the version specified in the changelog and package file.
+
+# Adding/removing/changing icons
+
+1. If adding, minify your 24x24 SVG icon(s) (https://jakearchibald.github.io/svgomg/ using Precision 1)
+1. Add/remove/change icon(s) in the `icons` folder.
+1. Change `package.json` version (if doing multiple of these, follow the first one that applies):  
+Removing an icon: _major_ release, f.e. `1.2.3 => 2.0.0`  
+Adding an icon: _minor_ release, f.e. `1.2.3 => 1.3.0`  
+Changing an icon: _patch_ release, f.e. `1.2.3 => 1.2.4`
+1. Add a `CHANGELOG.md` entry with the version and an explanation of changes
+1. Submit your pull request from a feature branch and get code reviewed.
+1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to merge with rebase.
+1. Code will automatically be released to [GitHub](https://github.com/transferwise/icons/releases) and published to [npm](https://www.npmjs.com/package/@transferwise/icons) with the version specified in the changelog and package file.
+1. The [demo](https://transferwise.github.io/icons) will also automatically be built.
+
 ### SVG Sprite
 
 [A helpful general guide for SVG icon sprites - CSSTricks](https://css-tricks.com/svg-sprites-use-better-icon-fonts/)
@@ -78,26 +101,3 @@ Just append the sprite code (manually or in case of Node, by requiring it as a m
 and use [like explained here](https://css-tricks.com/svg-sprites-use-better-icon-fonts/#article-header-id-2).
 
 We recommend using the provided stylesheet for the classes below.
-
-# Adding/removing/changing icons
-
-1. If adding, minify your 24x24 SVG icon(s) (https://jakearchibald.github.io/svgomg/ using Precision 1)
-1. Add/remove/change icon(s) in the `icons` folder.
-1. Change `package.json` version (if doing multiple of these, follow the first one that applies):  
-Removing an icon: _major_ release, f.e. `1.2.3 => 2.0.0`  
-Adding an icon: _minor_ release, f.e. `1.2.3 => 1.3.0`  
-Changing an icon: _patch_ release, f.e. `1.2.3 => 1.2.4`
-1. Add a `CHANGELOG.md` entry with the version and an explanation of changes
-1. Submit your pull request from a feature branch and get code reviewed.
-1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to merge with rebase.
-1. Code will automatically be released to [GitHub](https://github.com/transferwise/icons/releases) and published to [npm](https://www.npmjs.com/package/@transferwise/icons) with the version specified in the changelog and package file.
-1. The [demo](https://transferwise.github.io/icons) will also automatically be built.
-
-# Contributing
-
-1. Develop
-1. For a single-run check of version match and linting errors, run `npm test`.
-1. **Bump version number in `package.json` according to [semver](http://semver.org/) and add an item that a release will be based on to `CHANGELOG.md`**.
-1. Submit your pull request from a feature branch and get code reviewed.
-1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to merge with rebase.
-1. Code will automatically be released to [GitHub](https://github.com/transferwise/icons/releases) and published to [npm](https://www.npmjs.com/package/@transferwise/icons) with the version specified in the changelog and package file.
