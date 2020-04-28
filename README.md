@@ -5,7 +5,7 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/transferwise/icons/master.svg)](https://circleci.com/gh/transferwise/icons)
 [![npm](https://img.shields.io/npm/l/icons.svg)](https://github.com/transferwise/icons/blob/master/LICENSE)
 
-This is the TransferWise SVG icon set, [as seen in this demo](https://transferwise.github.io/icons).
+This is the TransferWise SVG icon set.
 
 The SVG icon sprite and demo are built using [create-svg-icon-sprite](https://github.com/transferwise/create-svg-icon-sprite).
 
@@ -31,7 +31,6 @@ npm install @transferwise/icons -S
 
 The icons can be imported individually, allowing us to minimize our app sizes.
 
-For example:
 ```js
 import { Bank } from '@transferwise/icons';
 
@@ -53,6 +52,10 @@ angular.module('your-app-name', [TwIconsModule]);
 ```html
 <tw-bank-icon size="24"></tw-bank-icon>
 ```
+
+### Figma
+
+https://www.figma.com/file/DUUEFGnfEAWFO2KEYDIL7mfr/TransferWise-Theme?node-id=2113%3A0
 
 ### SVG Sprite
 
