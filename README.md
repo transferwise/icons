@@ -9,13 +9,11 @@ This is the TransferWise SVG icon set, [as seen in this demo](https://transferwi
 
 The SVG icon sprite and demo are built using [create-svg-icon-sprite](https://github.com/transferwise/create-svg-icon-sprite).
 
-## Documentation
+# Documentation
 
-More detailed documentation 
+More detailed documentation about icons, names, props etc. you can find on [Neptune Design System website](https://transferwise.github.io/neptune-web/icons/About).
 
-https://transferwise.github.io/neptune-web/icons/About
-
-## Usage
+# Usage
 
 #### Yarn
 
@@ -78,7 +76,7 @@ and use [like explained here](https://css-tricks.com/svg-sprites-use-better-icon
 
 We recommend using the provided stylesheet for the classes below.
 
-## Adding/removing/changing icons
+# Adding/removing/changing icons
 
 1. If adding, minify your 24x24 SVG icon(s) (https://jakearchibald.github.io/svgomg/ using Precision 1)
 1. Add/remove/change icon(s) in the `icons` folder.
@@ -92,7 +90,7 @@ Changing an icon: _patch_ release, f.e. `1.2.3 => 1.2.4`
 1. Code will automatically be released to [GitHub](https://github.com/transferwise/icons/releases) and published to [npm](https://www.npmjs.com/package/@transferwise/icons) with the version specified in the changelog and package file.
 1. The [demo](https://transferwise.github.io/icons) will also automatically be built.
 
-## Contributing
+# Contributing
 
 1. Develop
 1. For a single-run check of version match and linting errors, run `npm test`.
