@@ -1,4 +1,4 @@
-# TransferWise icons
+# TransferWise Icons
 
 [![npm](https://img.shields.io/npm/v/@transferwise/icons.svg)](https://www.npmjs.com/package/@transferwise/icons)
 [![GitHub release](https://img.shields.io/github/release/transferwise/icons.svg)](https://github.com/transferwise/icons/releases)
@@ -11,7 +11,19 @@ The SVG icon sprite and demo are built using [create-svg-icon-sprite](https://gi
 
 ## Usage
 
-[A helpful general guide for SVG icon sprites - CSSTricks](https://css-tricks.com/svg-sprites-use-better-icon-fonts/)
+### Yarn
+
+```shell script
+yarn add @transferwise/icons
+```
+
+### NPM
+
+```shell script
+npm install @transferwise/icons -S
+```
+
+## Usage
 
 ### React
 
@@ -19,24 +31,30 @@ The icons can be imported individually, allowing us to minimize our app sizes.
 
 For example:
 ```js
-...
-import TransferIcon from '@transferwise/icons/react/transfer';
+import { Bank } from '@transferwise/icons';
 
-const YourComponent = () => (
-  ...
-  <TransferIcon size="sm" />
-  ...
-);
+const YourComponent = () => {
+
+  return (<div>...<Bank size={} />...</div>)
+};
 ```
 
-The `size` prop should be one of the sizes defined in `styles.css` (`sm`, `md`, `lg`, `xl`, or `xxl`),
-which should also be imported for consistency.
+### AngularJS
 
-The component also passes any other `className` and `style` values to the icon, so you can style them further,
-for example for a large blue icon:
 ```js
-<TransferIcon size="lg" className="text-info" />
+import { TwIconsModule } from '@transferwise/icons/lib/angular';
+
+// add it to list of dependencies
+angular.module('app', [TwIconsModule]);
 ```
+
+```html
+<tw-bank-icon size="24"></tw-bank-icon>
+```
+
+### SVG Sprite
+
+[A helpful general guide for SVG icon sprites - CSSTricks](https://css-tricks.com/svg-sprites-use-better-icon-fonts/)
 
 ### CDN
 
