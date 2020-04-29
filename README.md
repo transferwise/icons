@@ -18,6 +18,7 @@ The SVG icon sprite and demo are built using [create-svg-icon-sprite](https://gi
 The icons can be imported individually, allowing us to minimize our app sizes.
 
 For example:
+
 ```js
 ...
 import TransferIcon from '@transferwise/icons/react/transfer';
@@ -34,6 +35,7 @@ which should also be imported for consistency.
 
 The component also passes any other `className` and `style` values to the icon, so you can style them further,
 for example for a large blue icon:
+
 ```js
 <TransferIcon size="lg" className="text-info" />
 ```
@@ -69,9 +71,11 @@ you can use Webpack plugins to require the icons from the `dist/icons` directory
 and create your own sprite and serve it as you choose.
 
 #### CSS
+
 ```css
-@import "~@transferwise/icons/dist/icons.min.css";
+@import '~@transferwise/icons/dist/icons.min.css';
 ```
+
 (or just import it from JS depending on your build system)
 
 ### Usage from a non-module-based environment
@@ -83,8 +87,9 @@ and create your own sprite and serve it as you choose.
 1. Create components in your framework if you want to
 
 #### CSS
+
 ```css
-@import "node_modules/@transferwise/icons/dist/icons.min.css";
+@import 'node_modules/@transferwise/icons/dist/icons.min.css';
 ```
 
 ### Usage from server side
@@ -100,7 +105,7 @@ The package comes with styles (`icons.min.css`) for icon sizes you should use
 in your components for consistency.
 
 | Class                    | Size |
-|--------------------------|-----:|
+| ------------------------ | ---: |
 | `tw-icon-sm`             | 16px |
 | `tw-icon-md` (_default_) | 24px |
 | `tw-icon-lg`             | 32px |
@@ -112,9 +117,9 @@ in your components for consistency.
 1. If adding, minify your 24x24 SVG icon(s) (https://jakearchibald.github.io/svgomg/ using Precision 1)
 1. Add/remove/change icon(s) in the `icons` folder.
 1. Change `package.json` version (if doing multiple of these, follow the first one that applies):  
-Removing an icon: _major_ release, f.e. `1.2.3 => 2.0.0`  
-Adding an icon: _minor_ release, f.e. `1.2.3 => 1.3.0`  
-Changing an icon: _patch_ release, f.e. `1.2.3 => 1.2.4`
+   Removing an icon: _major_ release, f.e. `1.2.3 => 2.0.0`  
+   Adding an icon: _minor_ release, f.e. `1.2.3 => 1.3.0`  
+   Changing an icon: _patch_ release, f.e. `1.2.3 => 1.2.4`
 1. Add a `CHANGELOG.md` entry with the version and an explanation of changes
 1. Submit your pull request from a feature branch and get code reviewed.
 1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to merge with rebase.
