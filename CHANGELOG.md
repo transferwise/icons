@@ -1,3 +1,26 @@
+# v2.0.0-beta.4
+
+## Add Activity Category icons
+
+The fill color for the source icons were changed to `#00BAFF`, some paths were tweaked, and 16 new icons were added:
+
+- `bills`
+- `card-transferwise`
+- `charity`
+- `defrost`
+- `eating-out`
+- `entertainment`
+- `expenses`
+- `family`
+- `general`
+- `groceries`
+- `holidays`
+- `investments`
+- `personal-care`
+- `salary`
+- `savings`
+- `transport`
+
 # v2.0.0-beta.3
 
 ## Fix angularJS component names
