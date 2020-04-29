@@ -8,7 +8,7 @@ const getTemplate = (
 ): string => {
   if (hasFillVariant) {
     return `
-<div class="tw-icon-${icon.name}" ng-if="!$ctrl.filled" ng-switch="$ctrl.size">
+<div class="tw-icon tw-icon-${icon.name}" ng-if="!$ctrl.filled" ng-switch="$ctrl.size">
   <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
     ${svgContent.outline[16].angular}
   </svg>

@@ -1,3 +1,10 @@
+# v2.0.0-beta.5
+
+## Add common `tw-icon` class name to angular component template
+
+Add `tw-icon` class, that was missing from the template that is used to generate all the angularJS commponents. 
+Now each angularJS component will have the general class name and the scoped one: e.g. `tw-icon tw-icon-activity`
+
 # v2.0.0-beta.4
 
 ## Add Activity Category icons
