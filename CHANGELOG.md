@@ -1,3 +1,7 @@
+# v2.0.0-beta.6
+
+## Add missing `tw-icon` class names to angular component templates
+
 # v2.0.0-beta.5
 
 ## Add common `tw-icon` class name to angular component template
