@@ -12,7 +12,13 @@ Set of SVG icons designed and built by TransferWise and distributed as React and
 Each Icon is designed in two sizes: **`16`** and **`24`** pixels.
 The icon set has mostly **`outline`** icons but some of them also have **`filled`** variants.
 
-<!-- TODO: Add demo link here once it's deployed to github pages -->
+#### TransferWise Icons v1 
+You can find the documentation of `v1` icons [here](https://github.com/transferwise/icons/blob/f2d4b29847b3fa9ca488dac8acd5e2b75fc74291/README.md)
+
+<!-- 
+# Demo page of icons
+TODO: Add demo link here once it's deployed to github pages 
+-->
 
 # Usage
 ## Install
@@ -60,12 +66,11 @@ and in your template
 
 # Styling
 
-#### Inline SVG alignment
+### Inline SVG alignment
 
-⚠️ **Important**
+⚠️ **Important:**
 SVGs are inline elements and inline elements leave white space when rendered by browsers.
 To save some headaches when aligning your icons, make sure you added this CSS rule to your global stylesheet.
-[More info in this stackoverflow thread](https://stackoverflow.com/questions/24626908/how-to-get-rid-of-extra-space-below-svg-in-div-element)
 
 ```css
 .tw-icon svg {
@@ -73,7 +78,9 @@ To save some headaches when aligning your icons, make sure you added this CSS ru
 }
 ```
 
-#### Coloring icons
+[More info in this stackoverflow thread](https://stackoverflow.com/questions/24626908/how-to-get-rid-of-extra-space-below-svg-in-div-element)
+
+### Coloring icons
 The css rule `color` cascades to the `<svg>` shapes, because each inline SVG shapes all have the `fill` property set to `currentColor`. More info about [Cascading SVG Fill Color](https://css-tricks.com/cascading-svg-fill-color/). You can set the color of the icons, by simply using the following CSS
 
 ```css
