@@ -55,10 +55,9 @@ will result in
 ```ts
 import { TwIconsModule } from '@transferwise/icons/lib/angular';
 
-// add it to list of dependencies
+// add it to the list of dependencies
 angular.module('your-app-name', [TwIconsModule]);
 ```
-
 and in your template
 ```html
 <tw-bank-icon size="24"></tw-bank-icon>
@@ -113,9 +112,6 @@ The css rule `color` cascades to the `<svg>` shapes, because each inline SVG sha
 1. `Add` / `remove` / `change` icon(s) in the `icons` folder.
 Follow the **naming convention**, use **kebab-case** for naming the icon and its folder. For naming the SVG files in the folder, follow this pattern: `<<variant>>_<<size>>.svg`, e.g. `fill_16.svg` or `outline_24.svg`.
 1. Change `package.json` version (see next section)
-
-
-
 1. Add a `CHANGELOG.md` entry with the version and an explanation of changes
 1. Submit your pull request from a feature branch and get code reviewed.
 1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to merge with rebase.
