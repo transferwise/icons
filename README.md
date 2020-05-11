@@ -56,7 +56,7 @@ and in template
 
 <tw-activity-icon size="24" filled="true"></tw-activity-icon>
 
-<tw-balance-icon size="24" filled="$ctrl.isFilled"></tw-balance-icon>
+<tw-balance-icon size="16" filled="$ctrl.isFilled"></tw-balance-icon>
 ```
 
 # Styling
