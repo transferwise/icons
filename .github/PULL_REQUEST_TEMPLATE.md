@@ -11,4 +11,4 @@
 
 ## ✅ Checklist
 
-- [ ] The package version is bumped according to README in `package.json`, `package-lock.json`, and `CHANGELOG.md`
+- [ ] The package version is bumped according to README.md in `package.json`, and `CHANGELOG.md`
