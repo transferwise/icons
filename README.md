@@ -7,7 +7,6 @@
 
 ![transferwise-icons-github-readme](https://user-images.githubusercontent.com/47105236/81312233-b1ba1080-9086-11ea-9f99-ae754b3387fe.png)
 
-# About
 Set of SVG icons designed and built by TransferWise and distributed as React and AngularJS components.
 Each Icon is designed in two sizes: **`16`** and **`24`** pixels.
 The icon set has mostly **`outline`** icons but some of them also have **`filled`** variants.
@@ -34,19 +33,9 @@ npm install @transferwise/icons
 [![Edit TransferWise Icons | React](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/transferwise-icons-react-5hhxb?fontsize=14&hidenavigation=1&theme=dark)
 
 ```ts
-import { Bank as BankIcon } from '@transferwise/icons';
+import { BankIcon } from '@transferwise/icons';
 
 const YourComponent = () => <BankIcon size={24} filled />;
-```
-
-will result in
-```html
-<span class="tw-icon tw-icon-bank">
-  <svg width="24" height="24" fill="currentColor">
-    <path d="M22.003 9.408l-10-7.405-10 7.405 1.195 1.595 8.805-6.52 8.805 6.52 1.195-1.595z"></path>
-    <path d="M13 10v10h4v-7h2v7h2v2H3v-2h2v-7h2v7h4V10h2z"></path>
-  </svg>
-</span>
 ```
 
 ### AngularJS
@@ -58,9 +47,14 @@ import { TwIconsModule } from '@transferwise/icons/lib/angular';
 // add it to the list of dependencies
 angular.module('your-app-name', [TwIconsModule]);
 ```
-and in your template
+
+and in template
 ```html
 <tw-bank-icon size="24"></tw-bank-icon>
+
+<tw-activity-icon size="24" filled="true"></tw-activity-icon>
+
+<tw-balance-icon size="24" filled="$ctrl.isFilled"></tw-balance-icon>
 ```
 
 # Styling
@@ -105,32 +99,20 @@ The css rule `color` cascades to the `<svg>` shapes, because each inline SVG sha
 }
 ```
 
-# Adding / removing / updating icons
-
-1. `Add` / `remove` / `change` icon(s) in the `icons` folder.
-Follow the **naming convention**, use **kebab-case** for naming the icon and its folder. For naming the SVG files in the folder, follow this pattern: `<<variant>>_<<size>>.svg`, e.g. `fill_16.svg` or `outline_24.svg`.
-1. Change `package.json` version (see next section)
-1. Add a `CHANGELOG.md` entry with the version and an explanation of changes
-1. Submit your pull request from a feature branch and get code reviewed.
-1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to merge with rebase.
-1. Code will automatically be released to [GitHub](https://github.com/transferwise/icons/releases) and published to [npm](https://www.npmjs.com/package/@transferwise/icons) with the version specified in the changelog and package file.
-
-
-### How to change package.json version 
-if doing multiple of these, follow the first one that applies
-- **Removing** an icon: **major** release, f.e. **`1.2.3` => `2.0.0`** 
-- **Adding** an icon: **minor** release, f.e. **`1.2.3` => `1.3.0`** 
-- **Updating** an icon: **patch** release, f.e. **`1.2.3` => `1.2.4`** 
-
-
 # Contributing
 
-The build process for parsing, optimizing and generating individual Icon components is done by Typescript scripts, that you can find the in the `/scripts` folder. [Rollup.js](https://rollupjs.org/guide/en/) is used for generating the ES and UMD bundles of the library. Follow these steps, if you'd like to contribute to the project:
+Add / remove / change icon(s) in the `icons` folder.
+Follow the **naming convention**, use **kebab-case** for naming the icon and its folder.
+For naming the SVG files in the folder, follow this pattern: `<<variant>>_<<size>>.svg`, e.g. `fill_16.svg` or `outline_24.svg`.
 
-1. Develop in the `/scripts`
-1. To check the build process, run `yarn build`.
+The build process for parsing, optimizing and generating individual icon components is done by TypeScript script files, that you can find the in the `/scripts` folder. [Rollup.js](https://rollupjs.org/guide/en/) is used for generating the ES and UMD bundles of the library.
+
+
+Follow these steps, if you'd like to contribute to the project:
+
+1. Run `yarn build` to check your changes.
 1. For a single-run check of version match and linting errors, run `yarn test`.
-1. **Bump version number in `package.json` according to [semver](http://semver.org/) and add an item that a release will be based on to `CHANGELOG.md`**.
+1. **Bump version number in `package.json` according to [semver](http://semver.org/) and add an item to `CHANGELOG.md`**.
 1. Submit your pull request from a feature branch and get code reviewed.
 1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to merge with rebase.
 1. Code will automatically be released to [GitHub](https://github.com/transferwise/icons/releases) and published to [npm](https://www.npmjs.com/package/@transferwise/icons) with the version specified in the changelog and package file.
