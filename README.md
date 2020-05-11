@@ -49,6 +49,7 @@ will result in
     <path d="M13 10v10h4v-7h2v7h2v2H3v-2h2v-7h2v7h4V10h2z"></path>
   </svg>
 </span>
+```
 
 ### AngularJS
 [![Edit TransferWise Icons | Angular JS](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/transferwise-icons-angular-js-gwkoo?fontsize=14&hidenavigation=1&theme=dark)
