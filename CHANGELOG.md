@@ -1,3 +1,7 @@
+# v2.0.0-beta.7
+
+## Add a11y attributes
+
 # v2.0.0-beta.6
 
 ## Add missing `tw-icon` class names to angular component templates

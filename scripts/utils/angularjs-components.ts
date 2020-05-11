@@ -8,33 +8,33 @@ const getTemplate = (
 ): string => {
   if (hasFillVariant) {
     return `
-<div class="tw-icon tw-icon-${icon.name}" ng-if="!$ctrl.filled" ng-switch="$ctrl.size">
+<span ng-switch="$ctrl.size" ng-if="!$ctrl.filled" class="tw-icon tw-icon-${icon.name}" title="$ctrl.title">
   <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
     ${svgContent.outline[16].angular}
   </svg>
   <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
     ${svgContent.outline[24].angular}
   </svg>
-</div>
-<div class="tw-icon tw-icon-${icon.name}" ng-if="$ctrl.filled" ng-switch="$ctrl.size">
+</span>
+<span ng-switch="$ctrl.size" ng-if="$ctrl.filled" class="tw-icon tw-icon-${icon.name}" title="$ctrl.title">
   <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
     ${svgContent.fill[16].angular}
   </svg>
   <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
     ${svgContent.fill[24].angular}
   </svg>
-</div>`;
+</span>`;
   }
 
   return `
-  <div class="tw-icon tw-icon-${icon.name}" ng-if="!$ctrl.filled" ng-switch="$ctrl.size">
+  <span ng-switch="$ctrl.size" ng-if="!$ctrl.filled" class="tw-icon tw-icon-${icon.name}" title="$ctrl.title">
     <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
       ${svgContent.outline[16].angular}
     </svg>
     <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
       ${svgContent.outline[24].angular}
     </svg>
-  </div>
+  </span>
   `;
 };
 
@@ -49,7 +49,7 @@ export const createAngularJsIconComponentContent = (
 ${GENERATED_CODE_COMMENT}
 export const ${icon.componentName}IconComponent = {
   bindings: {
-    size: "<",${hasFillVariant ? `\nfilled: "<",` : ''}
+    size: "<", title: "<",${hasFillVariant ? `\nfilled: "<",` : ''}
   },
   template: \`${getTemplate(icon, hasFillVariant, svgContent)}\`,
 }`;
