@@ -69,7 +69,7 @@ and in your template
 
 ⚠️ **Important:**
 SVGs are inline elements and inline elements leave white space when rendered by browsers.
-To save some headaches when aligning your icons, make sure you added this CSS rule to your global stylesheet.
+To save some headaches when aligning your icons, make sure you added this CSS rule to your global stylesheet. More info in this [Stack Overflow thread](https://stackoverflow.com/a/24626986/2650174).
 
 ```css
 .tw-icon svg {
@@ -77,9 +77,7 @@ To save some headaches when aligning your icons, make sure you added this CSS ru
 }
 ```
 
-[More info in this stackoverflow thread](https://stackoverflow.com/questions/24626908/how-to-get-rid-of-extra-space-below-svg-in-div-element)
-
-### Coloring icons
+### Coloring Icons
 The css rule `color` cascades to the `<svg>` shapes, because each inline SVG shapes all have the `fill` property set to `currentColor`. More info about [Cascading SVG Fill Color](https://css-tricks.com/cascading-svg-fill-color/). You can set the color of the icons, by simply using the following CSS
 
 ```css
@@ -96,7 +94,7 @@ The css rule `color` cascades to the `<svg>` shapes, because each inline SVG sha
   color: #00b9ff;
 }
 
-/* if an icon inside another element should should have a specific color */
+/* if an icon inside another element should have a specific color */
 .parent-element > .tw-icon-fast-flag {
   color: #00b9ff;
 }
@@ -127,7 +125,7 @@ if doing multiple of these, follow the first one that applies
 
 # Contributing
 
-The build process for parsing, optimizing and generating individual Icon components is done by Typescript scripts, that you can find the in the `/scripts` folder. [Rollup.js](https://rollupjs.org/guide/en/) is used for generating the ES and UMD bundles of the library. Follow these steps, ff you'd like to contribute to the project:
+The build process for parsing, optimizing and generating individual Icon components is done by Typescript scripts, that you can find the in the `/scripts` folder. [Rollup.js](https://rollupjs.org/guide/en/) is used for generating the ES and UMD bundles of the library. Follow these steps, if you'd like to contribute to the project:
 
 1. Develop in the `/scripts`
 1. To check the build process, run `yarn build`.
