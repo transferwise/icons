@@ -114,6 +114,14 @@ The css rule `color` cascades to the `<svg>` shapes, because each inline SVG sha
 }
 ```
 
+### React Components
+
+Each React icon component has `className` property, so you can avoid wrapping component in extra elements for applying your CSS classes.
+
+```jsx
+<BankIcon size={24} filled className="m-t-2" />
+```
+
 # Contributing
 
 Add / remove / change icon(s) in the `icons` folder.
