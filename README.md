@@ -35,10 +35,20 @@ npm install @transferwise/icons
 [![Edit TransferWise Icons | React](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/transferwise-icons-react-5hhxb?fontsize=14&hidenavigation=1&theme=dark)
 
 ```ts
-import { BankIcon } from '@transferwise/icons';
+import { Bank as BankIcon } from '@transferwise/icons';
 
 const YourComponent = () => <BankIcon size={24} filled />;
 ```
+
+will result in
+
+```html
+<span class="tw-icon tw-icon-bank">
+  <svg width="24" height="24" fill="currentColor">
+    <path d="M22.003 9.408l-10-7.405-10 7.405 1.195 1.595 8.805-6.52 8.805 6.52 1.195-1.595z"></path>
+    <path d="M13 10v10h4v-7h2v7h2v2H3v-2h2v-7h2v7h4V10h2z"></path>
+  </svg>
+</span>
 
 ### AngularJS
 [![Edit TransferWise Icons | Angular JS](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/transferwise-icons-angular-js-gwkoo?fontsize=14&hidenavigation=1&theme=dark)
@@ -60,6 +70,8 @@ and in template
 ```
 
 # Styling
+
+Each component has `.tw-icon` CSS class and specific one `.tw-icon-${icon-name}` (e.g `.tw-icon-card-transferwise`). 
 
 ### Inline SVG alignment
 
