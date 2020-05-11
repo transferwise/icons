@@ -11,7 +11,6 @@ export const createReactIconComponentContent = (
   return `
 ${GENERATED_CODE_COMMENT}
 import React, { FunctionComponent } from 'react';
-import classnames from 'classnames';
 import { IconSize } from '../types';
 
 export interface ${icon.componentName}IconProps {
@@ -25,7 +24,7 @@ export const ${icon.componentName}: FunctionComponent<${
     icon.componentName
   }IconProps> = ({ size = 16, className = '', title = null ${hasFillVariant ? `, filled = false` : ''} }) => {
   return (
-    <span className={classnames('tw-icon', 'tw-icon-${icon.name}', className)}>
+    <span className={\`tw-icon tw-icon-${icon.name} \${className ? className : ''}\`}>
       <svg width={String(size)} height={String(size)} fill="currentColor">
         { Number(size) === 16 ${hasFillVariant ? '&& filled === false' : ''} && (
           <>
