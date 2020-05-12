@@ -43,7 +43,7 @@ const YourComponent = () => <BankIcon size={24} filled />;
 will result in
 
 ```html
-<span class="tw-icon tw-icon-bank">
+<span class="tw-icon tw-icon-bank" aria-hidden="true" role="presentation">
   <svg width="24" height="24" fill="currentColor">
     <path d="M22.003 9.408l-10-7.405-10 7.405 1.195 1.595 8.805-6.52 8.805 6.52 1.195-1.595z"></path>
     <path d="M13 10v10h4v-7h2v7h2v2H3v-2h2v-7h2v7h4V10h2z"></path>
@@ -72,7 +72,7 @@ and in template
 
 ### Necessary CSS
 
-Also, import CSS bundle which improves svg elements alignment and brings a11y CSS classes:
+Also, import CSS bundle which improves `svg` elements alignment and brings a11y CSS classes:
 
 ```css
 @import "~@transferwise/icons/lib/styles/main.min.css";
@@ -123,6 +123,18 @@ Each React icon component has `className` property, so you can avoid wrapping co
 ```jsx
 <BankIcon size={24} filled className="m-t-2" />
 ```
+
+# Accessibility
+
+### React Components
+
+Each React icon component has optional `title` property in case you want to add more meaning to the icon, the text will be read by Screen Reader.
+
+```jsx
+<ActivityIcon title="TW card transcation" />
+```
+
+By default icon will be removed from accessibility tree.
 
 # Contributing
 
