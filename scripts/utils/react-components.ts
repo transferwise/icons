@@ -14,14 +14,23 @@ import React, { FunctionComponent } from 'react';
 import { IconSize } from '../types';
 
 export interface ${icon.componentName}IconProps {
-  size?: IconSize, ${hasFillVariant ? `filled?: boolean;` : ''}
+  size?: IconSize;
+  ${hasFillVariant ? `filled?: boolean;` : ''}
+  className?: string;
+  title?: string;
 }
 
 export const ${icon.componentName}: FunctionComponent<${
     icon.componentName
-  }IconProps> = ({ size = 16 ${hasFillVariant ? `, filled = false` : ''} }) => {
+  }IconProps> = ({ size = 16, className = undefined, title = undefined ${
+    hasFillVariant ? `, filled = false` : ''
+  } }) => {
   return (
-    <span className='tw-icon tw-icon-${icon.name}'>
+    <span
+      className={\`tw-icon tw-icon-${icon.name} \${className ? className : ''}\`}
+      aria-hidden={!title ? 'true' : undefined}
+      role={!title ? 'presentation' : undefined}
+    >
       <svg width={String(size)} height={String(size)} fill="currentColor">
         { Number(size) === 16 ${hasFillVariant ? '&& filled === false' : ''} && (
           <>
@@ -50,6 +59,7 @@ export const ${icon.componentName}: FunctionComponent<${
             : ''
         }
       </svg>
+      { title && <span className="sr-only">{title}</span> }
     </span>
   )
 }
@@ -58,11 +68,10 @@ export const ${icon.componentName}: FunctionComponent<${
 
 export const generateAdditionalReactFiles = (icons: IconsMap, targetDir: string): void => {
   // Create index file that exports all the icons in the components folder
-  const indexContent = [];
-  Object.keys(icons).forEach(id => {
-    indexContent.push(`export * from './${icons[id].name}';`);
-  });
-  writeFile(`${targetDir}/components/index.ts`, indexContent.join('\n'));
+  const exportComponents = Object.keys(icons)
+    .map(id => `export * from './${icons[id].name}';`)
+    .join('\n');
+  writeFile(`${targetDir}/components/index.ts`, exportComponents);
 
   // Create index file in ./${targetDir} folder for exporting everyhting from ./${targetDir}/components
   writeFile(`${targetDir}/index.ts`, `${GENERATED_CODE_COMMENT}\nexport * from "./components";`);

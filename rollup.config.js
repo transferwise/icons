@@ -1,3 +1,4 @@
+import css from 'rollup-plugin-css-porter';
 import typescript from 'rollup-plugin-typescript2';
 import analyze from 'rollup-plugin-analyzer';
 import { terser } from 'rollup-plugin-terser';
@@ -45,4 +46,9 @@ const angularBundle = {
   plugins: [terser(), analyze({ summaryOnly: true })],
 };
 
-export default [reactBundle, angularBundle];
+const cssBundle = {
+  input: 'src/style/main.css',
+  plugins: [css({ dest: 'lib/styles/main.css', raw: false })],
+};
+
+export default [reactBundle, angularBundle, cssBundle];
