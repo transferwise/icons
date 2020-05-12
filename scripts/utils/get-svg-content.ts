@@ -1,5 +1,5 @@
 /* eslint-disable fp/no-mutation */
-import { parseSync, stringify } from 'svgson';
+import { parseSync, stringify, INode } from 'svgson';
 import SVGO from 'svgo';
 import { Icon, readFile } from '.';
 
@@ -14,11 +14,6 @@ export interface SvgContentForVariantsAndSizes {
   };
 }
 
-interface AstNode {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
-}
-
 const svgo = new SVGO();
 
 /**
@@ -26,7 +21,7 @@ const svgo = new SVGO();
  * Removes hardocded fill attributes to clean SVG paths
  * @param node
  */
-const transformNode = (node: AstNode): AstNode => {
+const transformNode = (node: INode): INode => {
   const newNode = node;
   delete newNode.attributes.fill;
 
@@ -42,9 +37,13 @@ export const readSvgFile = async (path: string): Promise<SvgContent> => {
   const ASTforReact = parseSync(optimizedSvgContent.data, { transformNode, camelcase: true });
   const ASTforAngular = parseSync(optimizedSvgContent.data, { transformNode });
 
+  // FIXME: stringify type expects INode not INode[], this still works
+  const ASTforReactChildren = (ASTforReact.children as unknown) as INode;
+  const ASTforAngularChildren = (ASTforAngular.children as unknown) as INode;
+
   return {
-    react: stringify(ASTforReact.children),
-    angular: stringify(ASTforAngular.children),
+    react: stringify(ASTforReactChildren),
+    angular: stringify(ASTforAngularChildren),
   };
 };
 
