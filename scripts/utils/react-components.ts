@@ -67,12 +67,11 @@ export const ${icon.componentName}: FunctionComponent<${
 };
 
 export const generateAdditionalReactFiles = (icons: IconsMap, targetDir: string): void => {
-  const styleImport = 'import ""\n';
   // Create index file that exports all the icons in the components folder
   const exportComponents = Object.keys(icons)
     .map(id => `export * from './${icons[id].name}';`)
     .join('\n');
-  writeFile(`${targetDir}/components/index.ts`, styleImport + exportComponents);
+  writeFile(`${targetDir}/components/index.ts`, exportComponents);
 
   // Create index file in ./${targetDir} folder for exporting everyhting from ./${targetDir}/components
   writeFile(`${targetDir}/index.ts`, `${GENERATED_CODE_COMMENT}\nexport * from "./components";`);
