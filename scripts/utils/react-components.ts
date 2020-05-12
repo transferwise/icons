@@ -22,7 +22,7 @@ export interface ${icon.componentName}IconProps {
 
 export const ${icon.componentName}: FunctionComponent<${
     icon.componentName
-  }IconProps> = ({ size = 16, className = '', title = undefined ${
+  }IconProps> = ({ size = 16, className = undefined, title = undefined ${
     hasFillVariant ? `, filled = false` : ''
   } }) => {
   return (
