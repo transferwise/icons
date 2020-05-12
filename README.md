@@ -70,24 +70,26 @@ and in template
 <tw-balance-icon size="16" filled="$ctrl.isFilled"></tw-balance-icon>
 ```
 
+### Necessary CSS
+
+Also, import CSS bundle which improves svg elements alignment and brings a11y CSS classes:
+
+```css
+@import "~@transferwise/icons/lib/styles/main.min.css";
+```
+
+or just import it from JS depending on your build system:
+
+```js
+import '@transferwise/icons/lib/styles/main.min.css';
+```
+
 # Styling
 
 Each component has `.tw-icon` CSS class and specific one `.tw-icon-${icon-name}` (e.g `.tw-icon-card-transferwise`). 
 
-### Inline SVG alignment
-
-⚠️ **Important:**
-SVGs are inline elements and inline elements leave white space when rendered by browsers.
-To save some headaches when aligning your icons, make sure you added this CSS rule to your global stylesheet. More info in this [Stack Overflow thread](https://stackoverflow.com/a/24626986/2650174).
-
-```css
-.tw-icon svg {
-  display: block;
-}
-```
-
 ### Coloring Icons
-The css rule `color` cascades to the `<svg>` shapes, because each inline SVG shapes all have the `fill` property set to `currentColor`. More info about [Cascading SVG Fill Color](https://css-tricks.com/cascading-svg-fill-color/). You can set the color of the icons, by simply using the following CSS
+The CSS rule `color` cascades to the `<svg>` shapes, because each inline SVG shapes all have the `fill` property set to `currentColor`. More info about [Cascading SVG Fill Color](https://css-tricks.com/cascading-svg-fill-color/). You can set the color of the icons, by simply using the following CSS
 
 ```css
 /* to set the color of all the icons */
