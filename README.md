@@ -72,7 +72,7 @@ and in template
 
 ### Necessary CSS
 
-Also, import CSS bundle which improves `svg` elements alignment and brings a11y CSS classes:
+To display the icons properly, you need to import CSS styles in your app. This file only makes sure that `SVG`s are rendered as block elements and handles **a11y** features.```
 
 ```css
 @import "~@transferwise/icons/lib/styles/main.min.css";
