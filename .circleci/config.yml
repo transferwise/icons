@@ -48,18 +48,6 @@ jobs:
             ssh-keyscan github.com >> ~/.ssh/known_hosts
             yarn release-to-github
 
-  publish-prerelease:
-    <<: *defaults
-    steps:
-      - run:
-          name: Setup npm token
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN_PUBLISH" >> ~/.npmrc
-      - attach_workspace:
-          at: .
-      - run:
-          name: Publish prerelease version on npm with beta tag
-          command: npm publish --tag beta
-
   publish:
     <<: *defaults
     steps:
@@ -87,14 +75,6 @@ workflows:
           requires:
             - test
             - dependencies
-      - publish-prerelease:
-          context: frontend-publish
-          requires:
-            - test
-            - build
-          filters:
-            branches:
-              only: beta
       - publish:
           context: frontend-publish
           requires:
