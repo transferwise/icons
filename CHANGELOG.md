@@ -1,3 +1,7 @@
+# v2.0.0
+
+## Icons v2 official release
+
 # v2.0.0-beta.7
 
 ## Add a11y attributes
