@@ -43,7 +43,7 @@ const YourComponent = () => <BankIcon size={24} filled />;
 will result in
 
 ```html
-<span class="tw-icon tw-icon-bank">
+<span class="tw-icon tw-icon-bank" aria-hidden="true" role="presentation">
   <svg width="24" height="24" fill="currentColor">
     <path d="M22.003 9.408l-10-7.405-10 7.405 1.195 1.595 8.805-6.52 8.805 6.52 1.195-1.595z"></path>
     <path d="M13 10v10h4v-7h2v7h2v2H3v-2h2v-7h2v7h4V10h2z"></path>
@@ -70,24 +70,26 @@ and in template
 <tw-balance-icon size="16" filled="$ctrl.isFilled"></tw-balance-icon>
 ```
 
-# Styling
+### Necessary CSS
 
-Each component has `.tw-icon` CSS class and specific one `.tw-icon-${icon-name}` (e.g `.tw-icon-card-transferwise`). 
-
-### Inline SVG alignment
-
-⚠️ **Important:**
-SVGs are inline elements and inline elements leave white space when rendered by browsers.
-To save some headaches when aligning your icons, make sure you added this CSS rule to your global stylesheet. More info in this [Stack Overflow thread](https://stackoverflow.com/a/24626986/2650174).
+To display the icons properly, you need to import CSS styles in your app. This file only makes sure that `<svg>` are rendered as block elements and handles **a11y** features.```
 
 ```css
-.tw-icon svg {
-  display: block;
-}
+@import "~@transferwise/icons/lib/styles/main.min.css";
 ```
 
+or just import it from JS depending on your build system:
+
+```js
+import '@transferwise/icons/lib/styles/main.min.css';
+```
+
+# Styling
+
+Each component has a general `.tw-icon` CSS class and a specific one that includes the icon's name in kebab-case, e.g `.tw-icon-card-transferwise`
+
 ### Coloring Icons
-The css rule `color` cascades to the `<svg>` shapes, because each inline SVG shapes all have the `fill` property set to `currentColor`. More info about [Cascading SVG Fill Color](https://css-tricks.com/cascading-svg-fill-color/). You can set the color of the icons, by simply using the following CSS
+The CSS rule `color` cascades to the `<svg>` shapes, because each inline SVG shapes all have the `fill` property set to `currentColor`. More info about [Cascading SVG Fill Color](https://css-tricks.com/cascading-svg-fill-color/). You can set the color of the icons, by simply using the following CSS
 
 ```css
 /* to set the color of all the icons */
@@ -121,6 +123,18 @@ Each React icon component has `className` property, so you can avoid wrapping co
 ```jsx
 <BankIcon size={24} filled className="m-t-2" />
 ```
+
+# Accessibility
+
+### React Components
+
+Each React icon component has an optional `title` property in case your icon has a semantic meaning, use this property, so it will be visible for Screen Readers.
+
+```jsx
+<ActivityIcon size={24} title="TW card transcation" />
+```
+
+By default icon will be removed from accessibility tree as [`aria-hidden="true"`](https://www.w3.org/TR/wai-aria-1.1/#aria-hidden) and [`role="presentation""`](https://www.w3.org/TR/using-aria/#presentation) attributes will be added.
 
 # Contributing
 
