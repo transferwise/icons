@@ -131,10 +131,10 @@ Each React icon component has `className` property, so you can avoid wrapping co
 Each React icon component has an optional `title` property in case your icon has a semantic meaning, use this property, so it will be visible for Screen Readers.
 
 ```jsx
-<ActivityIcon title="TW card transcation" />
+<ActivityIcon size={24} title="TW card transcation" />
 ```
 
-By default icon will be removed from accessibility tree.
+By default icon will be removed from accessibility tree as [`aria-hidden="true"`](https://www.w3.org/TR/wai-aria-1.1/#aria-hidden) and [`role="presentation""`](https://www.w3.org/TR/using-aria/#presentation) attributes will be added.
 
 # Contributing
 
