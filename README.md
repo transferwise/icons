@@ -72,7 +72,7 @@ and in template
 
 ### Necessary CSS
 
-To display the icons properly, you need to import CSS styles in your app. This file only makes sure that `SVG`s are rendered as block elements and handles **a11y** features.```
+To display the icons properly, you need to import CSS styles in your app. This file only makes sure that `<svg>` are rendered as block elements and handles **a11y** features.```
 
 ```css
 @import "~@transferwise/icons/lib/styles/main.min.css";
