@@ -128,7 +128,7 @@ Each React icon component has `className` property, so you can avoid wrapping co
 
 ### React Components
 
-Each React icon component has optional `title` property in case you want to add more meaning to the icon, the text will be read by Screen Reader.
+Each React icon component has an optional `title` property in case your icon has a semantic meaning, use this property, so it will be visible for Screen Readers.
 
 ```jsx
 <ActivityIcon title="TW card transcation" />
