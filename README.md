@@ -86,7 +86,7 @@ import '@transferwise/icons/lib/styles/main.min.css';
 
 # Styling
 
-Each component has `.tw-icon` CSS class and specific one `.tw-icon-${icon-name}` (e.g `.tw-icon-card-transferwise`). 
+Each component has a general `.tw-icon` CSS class and a specific one that includes the icon's name in kebab-case, e.g `.tw-icon-card-transferwise`
 
 ### Coloring Icons
 The CSS rule `color` cascades to the `<svg>` shapes, because each inline SVG shapes all have the `fill` property set to `currentColor`. More info about [Cascading SVG Fill Color](https://css-tricks.com/cascading-svg-fill-color/). You can set the color of the icons, by simply using the following CSS
