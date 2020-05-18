@@ -1,6 +1,16 @@
 /* eslint-disable fp/no-mutation */
 import { createIconComponentName, writeFile, Icon } from '.';
 
+const OLD_ICON_NAMES_MAP = {
+  more: 'pips',
+  cross: 'close',
+  'chevron-left': 'left',
+  'chevron-right': 'right',
+  checkcircle: 'tickcircle',
+  plus: 'topup',
+  check: 'tick'
+}
+
 export interface IconsMap {
   [key: string]: Icon;
 }
@@ -19,6 +29,7 @@ export const createIconsMap = (paths): IconsMap => {
     if (!icons[name]) {
       icons[name] = {
         name,
+        oldName: OLD_ICON_NAMES_MAP[name],
         componentName: createIconComponentName(name),
         sizes: [size],
         svgFiles: {
