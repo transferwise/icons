@@ -15,7 +15,7 @@
     "build:format": "yarn prettier --write",
     "build:rollup": "rollup -c",
     "demo:build": "next build && next export -o demo && touch demo/.nojekyll",
-    "demo:deploy": "gh-pages -d demo",
+    "demo:deploy": "gh-pages -d demo -t true",
     "rollup:watch": "rollup -cw",
     "dev-demo": "next dev",
     "test": "run-s test:*",
