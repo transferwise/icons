@@ -8,8 +8,8 @@ const OLD_ICON_NAMES_MAP = {
   'chevron-right': 'right',
   checkcircle: 'tickcircle',
   plus: 'topup',
-  check: 'tick'
-}
+  check: 'tick',
+};
 
 export interface IconsMap {
   [key: string]: Icon;
