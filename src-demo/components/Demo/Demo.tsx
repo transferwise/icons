@@ -7,6 +7,7 @@ import { IconPreview } from '../IconPreview/IconPreview';
 import { generateBadges } from '../utils';
 
 import styles from './Demo.module.css';
+import { Legend } from '../Legend/Legend';
 
 const { publicRuntimeConfig } = getConfig();
 const TW_COLORS = ['#37517e', '#6f8691', '#00b9ff'];
@@ -19,6 +20,7 @@ const ControlGroup = ({ label, children }) => {
     </div>
   );
 };
+
 export const Demo: FunctionComponent = () => {
   const [size, setSize] = useState<number>(24);
   const [isFilled, setFill] = useState<boolean>(true);
@@ -59,6 +61,14 @@ export const Demo: FunctionComponent = () => {
           <button type="button" className="btn btn-default" onClick={() => setFill(!isFilled)}>
             {isFilled ? 'Hide' : 'Show'}
           </button>
+        </ControlGroup>
+        <ControlGroup label="Legend">
+          <Legend
+            items={[
+              { color: '#00b9ff', label: 'has filled variant'},
+              { color: '#f53636', label: 'new name in v2'},
+            ]}
+          />
         </ControlGroup>
       </div>
 
