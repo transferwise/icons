@@ -7,7 +7,7 @@ const App = () => (
     <Head>
       <title>TransferWise Icons</title>
       <meta name="description" content="TransferWise Icons | SVG Icons for web"></meta>
-      <link rel="icon" href="/favicon.png" />
+      <link rel="icon" href="/icons/favicon.png" />
     </Head>
     <Demo />
   </div>
