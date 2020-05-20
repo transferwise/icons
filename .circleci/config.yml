@@ -111,3 +111,6 @@ workflows:
           context: frontend-publish
           requires:
             - build
+          filters:
+            branches:
+              only: master
