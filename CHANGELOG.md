@@ -1,3 +1,12 @@
+# v2.0.1
+
+## Demo page for the icons
+
+Check out the demo page here
+https://transferwise.github.io/icons/
+
+The demo page allows consumers to preview icons in different variants and the main TransferWise colors, find them by name and check out renamed ones.
+
 # v2.0.0
 
 ## Icons v2 official release
