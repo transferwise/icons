@@ -2,6 +2,7 @@ import css from 'rollup-plugin-css-porter';
 import typescript from 'rollup-plugin-typescript2';
 import analyze from 'rollup-plugin-analyzer';
 import { terser } from 'rollup-plugin-terser';
+import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 import pkg from './package.json';
 
 const reactBundle = {
@@ -43,7 +44,14 @@ const angularBundle = {
     },
   },
   external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
-  plugins: [terser(), analyze({ summaryOnly: true })],
+  plugins: [
+    getBabelOutputPlugin({
+      presets: ['@babel/preset-env'],
+      allowAllFormats: true,
+    }),
+    terser(),
+    analyze({ summaryOnly: true }),
+  ],
 };
 
 const cssBundle = {
