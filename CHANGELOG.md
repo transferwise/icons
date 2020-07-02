@@ -1,3 +1,7 @@
+# v2.1.0
+
+## Use babel to transpile angular bundle
+
 # v2.0.0
 
 ## Icons v2 official release
