@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/icons",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "TransferWise SVG icons",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -40,6 +40,9 @@
     "react": "*"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@rollup/plugin-babel": "^5.0.4",
     "@transferwise/eslint-config": "^5.0.3",
     "@types/node": "^13.7.7",
     "@types/react": "^16.9.23",
