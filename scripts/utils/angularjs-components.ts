@@ -9,30 +9,30 @@ const getTemplate = (
   if (hasFillVariant) {
     return `
 <span ng-switch="$ctrl.size" ng-if="!$ctrl.filled" class="tw-icon tw-icon-${icon.name}">
-  <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
-    ${svgContent.outline[16].angular}
-  </svg>
   <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
     ${svgContent.outline[24].angular}
   </svg>
+  <svg ng-switch-default width="16" height="16" fill="currentColor">
+    ${svgContent.outline[16].angular}
+  </svg>
 </span>
 <span ng-switch="$ctrl.size" ng-if="$ctrl.filled" class="tw-icon tw-icon-${icon.name}">
-  <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
-    ${svgContent.fill[16].angular}
-  </svg>
   <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
     ${svgContent.fill[24].angular}
+  </svg>
+  <svg ng-switch-default width="16" height="16" fill="currentColor">
+    ${svgContent.fill[16].angular}
   </svg>
 </span>`;
   }
 
   return `
   <span ng-switch="$ctrl.size" ng-if="!$ctrl.filled" class="tw-icon tw-icon-${icon.name}">
-    <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
-      ${svgContent.outline[16].angular}
-    </svg>
     <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
       ${svgContent.outline[24].angular}
+    </svg>
+    <svg ng-switch-default width="16" height="16" fill="currentColor">
+      ${svgContent.outline[16].angular}
     </svg>
   </span>
   `;
