@@ -1,3 +1,7 @@
+# v2.2.0
+
+## Use 16 size as default for angular icons components
+
 # v2.1.0
 
 ## Use babel to transpile angular bundle
