@@ -72,12 +72,34 @@ export const generateAngularJsIconModuleContent = (icons: IconsMap, targetDir: s
   const angularJsModule = `${GENERATED_CODE_COMMENT}
 import angular from "angular";
 ${importStatements.join('\n')}
+import { IconComponent } from "./components/icon.component"
   
 export const TwIconsModule = angular
   .module("tw.icons", [])
   ${moduleComponents.join('\n')}
+  .component("twIcon", IconComponent)
   .name;  
 `;
 
   writeFile(`${targetDir}/angular/index.js`, angularJsModule);
+};
+
+export const generateGeneralIconComponent = (icons: IconsMap, targetDir: string): void => {
+  const components = Object.keys(icons)
+      .map(key => `<tw-${key}-icon ng-switch-when="${key}" filled="$ctrl.filled" size="$ctrl.size"></tw-${key}-icon>`);
+
+  const content = `
+  export const IconComponent = {
+  bindings: {
+    name: '<',
+    size: '<',
+    filled: '<',
+  },
+  template: \`
+    <ng-switch on="$ctrl.name">
+      ${components.join('\n')}
+    </ng-switch>\`,
+  };`;
+
+  writeFile(`${targetDir}/angular/components/icon.component.js`, content);
 };

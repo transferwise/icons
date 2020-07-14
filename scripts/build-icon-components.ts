@@ -7,6 +7,7 @@ import {
   createAngularJsIconComponentContent,
   generateAdditionalReactFiles,
   generateAngularJsIconModuleContent,
+  generateGeneralIconComponent,
 } from './utils';
 
 const ICONS_DIR = 'icons';
@@ -36,3 +37,4 @@ const generateIconComponentFiles = async (): Promise<void> => {
 generateIconComponentFiles();
 generateAdditionalReactFiles(icons, TARGET_DIR);
 generateAngularJsIconModuleContent(icons, TARGET_DIR);
+generateGeneralIconComponent(icons, TARGET_DIR);
