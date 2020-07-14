@@ -67,9 +67,13 @@ and in template
 ```html
 <tw-bank-icon size="24"></tw-bank-icon>
 
+<tw-icon name="bank" size="24"></tw-icon>
+
 <tw-activity-icon size="24" filled="true"></tw-activity-icon>
 
 <tw-balance-icon size="16" filled="$ctrl.isFilled"></tw-balance-icon>
+
+<tw-icon name="balance" size="16" filled="$ctrl.isFilled"></tw-icon>
 ```
 
 ## Necessary CSS
