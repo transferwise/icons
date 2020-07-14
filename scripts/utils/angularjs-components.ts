@@ -87,7 +87,7 @@ export const TwIconsModule = angular
 export const generateGeneralIconComponent = (icons: IconsMap, targetDir: string): void => {
   const components = Object.keys(icons).map(
       key =>
-      `<tw-${key}-icon·ng-switch-when="${key}"·filled="$ctrl.filled"·size="$ctrl.size"></tw-${key}-icon>`
+      `<tw-${key}-icon ng-switch-when="${key}"·filled="$ctrl.filled" size="$ctrl.size"></tw-${key}-icon>`,
   );
 
   const content = `
