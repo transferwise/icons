@@ -4,7 +4,7 @@
 
 Example:
 ```js
-<tw-icon name="bank" size="24"></tw-icon>
+<tw-icon name="'bank'" size="24"></tw-icon>
 ```
 
 # v2.2.0
