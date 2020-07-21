@@ -18,18 +18,20 @@ export interface ${icon.componentName}IconProps {
   ${hasFillVariant ? `filled?: boolean;` : ''}
   className?: string;
   title?: string;
+  ['data-testid']?: string;
 }
 
 export const ${icon.componentName}: FunctionComponent<${
     icon.componentName
   }IconProps> = ({ size = 16, className = undefined, title = undefined ${
     hasFillVariant ? `, filled = false` : ''
-  } }) => {
+  }, ...restProps }) => {
   return (
     <span
       className={\`tw-icon tw-icon-${icon.name} \${className ? className : ''}\`}
       aria-hidden={!title ? 'true' : undefined}
       role={!title ? 'presentation' : undefined}
+      data-testid={restProps['data-testid']}
     >
       <svg width={String(size)} height={String(size)} fill="currentColor">
         { Number(size) === 16 ${hasFillVariant ? '&& filled === false' : ''} && (
