@@ -34,7 +34,7 @@ npm install @transferwise/icons
 ```ts
 import { Bank as BankIcon } from '@transferwise/icons';
 
-const YourComponent = () => <BankIcon size={24} filled />;
+const YourComponent = () => <BankIcon size={24} filled data-testid="bank-icon" />;
 ```
 
 will result in

@@ -1,3 +1,7 @@
+# v2.4.0
+
+## Add `data-testid` prop for React icon components
+
 # v2.3.0
 
 ## Generic icon component for Angular set
