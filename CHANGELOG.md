@@ -1,3 +1,7 @@
+# v2.4.1
+
+## Migrate on `main` branch
+
 # v2.4.0
 
 ## Add `data-testid` prop for React icon components

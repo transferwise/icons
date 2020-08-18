@@ -2,8 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/@transferwise/icons.svg)](https://www.npmjs.com/package/@transferwise/icons)
 [![GitHub release](https://img.shields.io/github/release/transferwise/icons.svg)](https://github.com/transferwise/icons/releases)
-[![CircleCI](https://img.shields.io/circleci/project/github/transferwise/icons/master.svg)](https://circleci.com/gh/transferwise/icons)
-[![npm](https://img.shields.io/npm/l/icons.svg)](https://github.com/transferwise/icons/blob/master/LICENSE)
+[![CircleCI](https://img.shields.io/circleci/project/github/transferwise/icons/main.svg)](https://circleci.com/gh/transferwise/icons)
+[![npm](https://img.shields.io/npm/l/icons.svg)](https://github.com/transferwise/icons/blob/main/LICENSE)
 
 ![transferwise-icons-github-readme](https://user-images.githubusercontent.com/47105236/81312233-b1ba1080-9086-11ea-9f99-ae754b3387fe.png)
 
