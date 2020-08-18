@@ -1,5 +1,3 @@
-<!-- ☝️ make the title meaningful -->
-
 ## ❓ Context
 <!-- why this change is made --> 
 
@@ -11,4 +9,5 @@
 
 ## ✅ Checklist
 
+- [ ] Make the PR title meaningful
 - [ ] The package version is bumped according to README.md in `package.json`, and `CHANGELOG.md`
