@@ -10,7 +10,7 @@ import {
   generateGeneralIconComponent,
 } from './utils';
 
-const ICONS_DIR = 'icons';
+const ICONS_DIR = 'src/icons';
 const TARGET_DIR = 'build';
 
 const allIconsPaths = glob.sync(`${ICONS_DIR}/**/*.svg`);
