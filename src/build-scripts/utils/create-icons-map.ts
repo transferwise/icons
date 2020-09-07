@@ -1,5 +1,5 @@
 /* eslint-disable fp/no-mutation */
-import { createIconComponentName, writeFile, Icon } from '.';
+import { createIconComponentName, writeFile, Icon } from './index';
 
 export interface IconsMap {
   [key: string]: Icon;
@@ -11,8 +11,8 @@ export const createIconsMap = (paths): IconsMap => {
   paths.forEach(path => {
     // TODO: validate icon name and meta data (svg file name) to follow convention
     const pathFragments = path.split('/');
-    const name = pathFragments[1];
-    const meta = pathFragments[2];
+    const name = pathFragments[2];
+    const meta = pathFragments[3];
     const [variant, sizeWithExtension] = meta.split('_');
     const size = sizeWithExtension.slice(0, 2);
 

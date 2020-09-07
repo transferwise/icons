@@ -1,4 +1,4 @@
-import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from '.';
+import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from './index';
 import { IconsMap } from './create-icons-map';
 
 export const createReactIconComponentContent = (
