@@ -15,5 +15,5 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["./build/**/*"],
-  "exclude": ["node_modules", "scripts"]
+  "exclude": ["node_modules", "src/build-scripts"]
 }

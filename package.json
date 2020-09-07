@@ -18,11 +18,11 @@
     "test": "run-s test:*",
     "test:lint": "yarn lint",
     "test:check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
-    "lint": "eslint './scripts/**/*.{ts,tsx}'",
+    "lint": "eslint 'src/build-scripts/**/*.{ts,tsx}'",
     "lint-fix": "yarn run lint --fix",
     "prettier": "prettier './build/**/*.{ts,tsx,js}'",
     "release-to-github": "release-to-github-with-changelog",
-    "build-icon-components": "ts-node --project ./tsconfig.scripts.json ./scripts/build-icon-components.ts"
+    "build-icon-components": "ts-node --project ./tsconfig.scripts.json src/build-scripts/build-icon-components.ts"
   },
   "repository": {
     "type": "git",

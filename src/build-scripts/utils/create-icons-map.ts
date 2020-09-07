@@ -1,5 +1,5 @@
 /* eslint-disable fp/no-mutation */
-import { createIconComponentName, writeFile, Icon } from '.';
+import { createIconComponentName, writeFile, Icon } from './index';
 
 export interface IconsMap {
   [key: string]: Icon;
