@@ -10,7 +10,7 @@
 # OSX
 .DS_Store
 
-# Generated react icon components and ts files
+# Generated icon components and ts files
 build
 
 # icons library modules
