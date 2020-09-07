@@ -1,3 +1,10 @@
+# v2.4.2
+
+## Folder restructure
+
+- `icons/` -> `src/icons`
+- `scripts/` -> `src/build-scripts`
+
 # v2.4.1
 
 ## Migrate on `main` branch
