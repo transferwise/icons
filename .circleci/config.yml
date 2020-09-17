@@ -59,6 +59,17 @@ jobs:
       - run:
           name: Publish on npm
           command: npm publish --access=public
+  beta-publish:
+    <<: *defaults
+    steps:
+      - run:
+          name: Setup npm token
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN_PUBLISH" >> ~/.npmrc
+      - attach_workspace:
+          at: .
+      - run:
+          name: Publish beta version on npm
+          command: npm publish --access=public --tag beta
 
 workflows:
   version: 2
@@ -83,6 +94,14 @@ workflows:
           filters:
             branches:
               only: main
+      - beta-publish:
+          context: frontend-publish
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: beta
       - release:
           context: frontend-publish
           requires:
