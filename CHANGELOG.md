@@ -1,3 +1,9 @@
+# v2.4.2-beta.1
+
+## Rename Angular icons bundle in rollup config
+
+`index.js` -> `@transferwise/icons-angular`
+
 # v2.4.2
 
 ## Folder restructure
