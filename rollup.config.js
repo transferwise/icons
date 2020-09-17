@@ -37,7 +37,7 @@ const angularBundle = {
   input: 'build/angular/index.js',
   output: {
     file: 'lib/angular/index.js',
-    name: 'index.js',
+    name: `${pkg.name}-angular`,
     format: 'umd',
     globals: {
       angular: 'angular',
