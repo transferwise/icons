@@ -1,3 +1,11 @@
+# v2.4.3
+
+## Adds focusable="false" to SVGs
+
+IE11 doesn't support tabindex for SVGs, as a result they appear in the focus order by default and keyboard users will tab into them, resulting in a disorienting experience. Adding this property fixes that.
+
+See: https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html
+
 # v2.4.2
 
 ## Folder restructure
@@ -18,6 +26,7 @@
 ## Generic icon component for Angular set
 
 Example:
+
 ```js
 <tw-icon name="'bank'" size="24"></tw-icon>
 ```
@@ -46,7 +55,7 @@ Example:
 
 ## Add common `tw-icon` class name to angular component template
 
-Add `tw-icon` class, that was missing from the template that is used to generate all the angularJS commponents. 
+Add `tw-icon` class, that was missing from the template that is used to generate all the angularJS commponents.
 Now each angularJS component will have the general class name and the scoped one: e.g. `tw-icon tw-icon-activity`
 
 # v2.0.0-beta.4
