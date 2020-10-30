@@ -1,3 +1,7 @@
+# v2.5.0
+
+## Add filled version of pending-circle
+
 # v2.4.2
 
 ## Folder restructure
