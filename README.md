@@ -150,7 +150,7 @@ Follow these steps, if you'd like to contribute to the project:
 1. For a single-run check of version match and linting errors, run `yarn test`.
 1. **Bump version number in `package.json` according to [semver](http://semver.org/) and add an item to `CHANGELOG.md`**.
 1. Submit your pull request from a feature branch and get code reviewed.
-1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to merge with rebase.
+1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to squash and merge.
 1. Code will automatically be released to [GitHub](https://github.com/transferwise/icons/releases) and published to [npm](https://www.npmjs.com/package/@transferwise/icons) with the version specified in the changelog and package file.
 
 
