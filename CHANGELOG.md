@@ -1,10 +1,14 @@
-# v2.4.3
+# v2.5.1
 
 ## Adds focusable="false" to SVGs
 
 IE11 doesn't support tabindex for SVGs, as a result they appear in the focus order by default and keyboard users will tab into them, resulting in a disorienting experience. Adding this property fixes that.
 
 See: https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html
+
+# v2.5.0
+
+## Add filled version of pending-circle
 
 # v2.4.2
 
