@@ -33,7 +33,7 @@ export const ${icon.componentName}: FunctionComponent<${
       role={!title ? 'presentation' : undefined}
       data-testid={restProps['data-testid']}
     >
-      <svg width={String(size)} height={String(size)} fill="currentColor">
+      <svg width={String(size)} height={String(size)} fill="currentColor" focusable="false">
         { Number(size) === 16 ${hasFillVariant ? '&& filled === false' : ''} && (
           <>
             ${svgContent.outline[16].react}
