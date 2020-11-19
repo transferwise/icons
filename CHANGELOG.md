@@ -1,3 +1,9 @@
+# v2.6.0
+
+## Updates payment method icons
+
+Adds iDEAL, Trustly and FPX. Updates Klarna.
+
 # v2.5.1
 
 ## Adds focusable="false" to SVGs
