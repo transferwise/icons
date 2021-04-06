@@ -1,3 +1,10 @@
+# v2.7.0
+
+## Update Direct Debits icon
+
+- Previous `direct-debits` icon is renamed to `calendar`.
+- Adds new `direct-debits` icon.
+
 # v2.6.0
 
 ## Updates payment method icons
