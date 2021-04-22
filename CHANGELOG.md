@@ -1,3 +1,7 @@
+# v2.8.0
+
+## Add Team icon
+
 # v2.7.0
 
 ## Update Direct Debits icon
