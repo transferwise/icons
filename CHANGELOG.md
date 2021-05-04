@@ -1,3 +1,7 @@
+# v2.9.0
+
+## Add Business category icons
+
 # v2.8.0
 
 ## Add Team icon
