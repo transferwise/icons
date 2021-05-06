@@ -1,3 +1,18 @@
+# v2.9.0
+
+## Add Business category icons
+- `contract-services`
+- `cost-of-goods-sold`
+- `insurance`
+- `marketing`
+- `office-expenses`
+- `owners-withdrawal`
+- `rent`
+- `sales-and-royalties`
+- `software-and-web-hosting`
+- `tax`
+- `travel`
+
 # v2.8.0
 
 ## Add Team icon
