@@ -1,7 +1,7 @@
 /* eslint-disable fp/no-mutation */
 import { parseSync, stringify, INode } from 'svgson';
 import SVGO from 'svgo';
-import { Icon, readFile } from '.';
+import { Icon, readFile } from './index';
 
 interface SvgContent {
   react: string;

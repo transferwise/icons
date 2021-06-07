@@ -8,6 +8,6 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["./scripts/**/*", "./rollup.config.js"],
+  "include": ["./src/build-scripts/**/*", "./rollup.config.js"],
   "exclude": ["node_modules"]
 }

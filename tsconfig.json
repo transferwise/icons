@@ -19,11 +19,14 @@
     "jsx": "preserve"
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "./build/**/*"
   ],
   "include": [
     "next-env.d.ts",
     "(pages|src-demo)/**/*.ts",
-    "(pages|src-demo)/**/*.tsx"
+    "(pages|src-demo)/**/*.tsx",
+    "node_modules",
+    "src/build-scripts"
   ]
 }

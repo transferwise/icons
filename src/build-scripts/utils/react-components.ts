@@ -1,4 +1,4 @@
-import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from '.';
+import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from './index';
 import { IconsMap } from './create-icons-map';
 
 export const createReactIconComponentContent = (
@@ -18,20 +18,22 @@ export interface ${icon.componentName}IconProps {
   ${hasFillVariant ? `filled?: boolean;` : ''}
   className?: string;
   title?: string;
+  ['data-testid']?: string;
 }
 
 export const ${icon.componentName}: FunctionComponent<${
     icon.componentName
   }IconProps> = ({ size = 16, className = undefined, title = undefined ${
     hasFillVariant ? `, filled = false` : ''
-  } }) => {
+  }, ...restProps }) => {
   return (
     <span
       className={\`tw-icon tw-icon-${icon.name} \${className ? className : ''}\`}
       aria-hidden={!title ? 'true' : undefined}
       role={!title ? 'presentation' : undefined}
+      data-testid={restProps['data-testid']}
     >
-      <svg width={String(size)} height={String(size)} fill="currentColor">
+      <svg width={String(size)} height={String(size)} fill="currentColor" focusable="false">
         { Number(size) === 16 ${hasFillVariant ? '&& filled === false' : ''} && (
           <>
             ${svgContent.outline[16].react}

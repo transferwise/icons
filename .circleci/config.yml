@@ -98,7 +98,7 @@ workflows:
             - build
           filters:
             branches:
-              only: master
+              only: main
       - release:
           context: frontend-publish
           requires:
@@ -106,11 +106,11 @@ workflows:
             - build
           filters:
             branches:
-              only: master
+              only: main
       - demo:
           context: frontend-publish
           requires:
             - build
           filters:
             branches:
-              only: master
+              only: main

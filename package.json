@@ -1,6 +1,6 @@
 {
   "name": "@transferwise/icons",
-  "version": "2.0.1",
+  "version": "2.9.0",
   "description": "TransferWise SVG icons",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -21,11 +21,11 @@
     "test": "run-s test:*",
     "test:lint": "yarn lint",
     "test:check-release-to-github": "release-to-github-with-changelog-pre-release-checks",
-    "lint": "eslint './scripts/**/*.{ts,tsx}'",
+    "lint": "eslint 'src/build-scripts/**/*.{ts,tsx}'",
     "lint-fix": "yarn run lint --fix",
     "prettier": "prettier './build/**/*.{ts,tsx,js}'",
     "release-to-github": "release-to-github-with-changelog",
-    "build-icon-components": "ts-node --project ./tsconfig.scripts.json ./scripts/build-icon-components.ts"
+    "build-icon-components": "ts-node --project ./tsconfig.scripts.json src/build-scripts/build-icon-components.ts"
   },
   "repository": {
     "type": "git",
@@ -43,6 +43,9 @@
     "react": "*"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@rollup/plugin-babel": "^5.0.4",
     "@transferwise/eslint-config": "^5.0.3",
     "@types/node": "^13.7.7",
     "@types/react": "^16.9.23",

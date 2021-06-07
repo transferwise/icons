@@ -1,4 +1,4 @@
-import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from '.';
+import { Icon, SvgContentForVariantsAndSizes, GENERATED_CODE_COMMENT, writeFile } from './index';
 import { IconsMap } from './create-icons-map';
 
 const getTemplate = (
@@ -9,30 +9,30 @@ const getTemplate = (
   if (hasFillVariant) {
     return `
 <span ng-switch="$ctrl.size" ng-if="!$ctrl.filled" class="tw-icon tw-icon-${icon.name}">
-  <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
-    ${svgContent.outline[16].angular}
-  </svg>
   <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
     ${svgContent.outline[24].angular}
   </svg>
+  <svg ng-switch-default width="16" height="16" fill="currentColor">
+    ${svgContent.outline[16].angular}
+  </svg>
 </span>
 <span ng-switch="$ctrl.size" ng-if="$ctrl.filled" class="tw-icon tw-icon-${icon.name}">
-  <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
-    ${svgContent.fill[16].angular}
-  </svg>
   <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
     ${svgContent.fill[24].angular}
+  </svg>
+  <svg ng-switch-default width="16" height="16" fill="currentColor">
+    ${svgContent.fill[16].angular}
   </svg>
 </span>`;
   }
 
   return `
   <span ng-switch="$ctrl.size" ng-if="!$ctrl.filled" class="tw-icon tw-icon-${icon.name}">
-    <svg ng-switch-when="16" width="16" height="16" fill="currentColor">
-      ${svgContent.outline[16].angular}
-    </svg>
     <svg ng-switch-when="24" width="24" height="24" fill="currentColor">
       ${svgContent.outline[24].angular}
+    </svg>
+    <svg ng-switch-default width="16" height="16" fill="currentColor">
+      ${svgContent.outline[16].angular}
     </svg>
   </span>
   `;
@@ -72,12 +72,36 @@ export const generateAngularJsIconModuleContent = (icons: IconsMap, targetDir: s
   const angularJsModule = `${GENERATED_CODE_COMMENT}
 import angular from "angular";
 ${importStatements.join('\n')}
+import { IconComponent } from "./components/icon.component"
   
 export const TwIconsModule = angular
   .module("tw.icons", [])
   ${moduleComponents.join('\n')}
+  .component("twIcon", IconComponent)
   .name;  
 `;
 
   writeFile(`${targetDir}/angular/index.js`, angularJsModule);
+};
+
+export const generateGeneralIconComponent = (icons: IconsMap, targetDir: string): void => {
+  const components = Object.keys(icons).map(
+    key =>
+      `<tw-${key}-icon ng-switch-when="${key}" filled="$ctrl.filled" size="$ctrl.size"></tw-${key}-icon>`,
+  );
+
+  const content = `
+  export const IconComponent = {
+  bindings: {
+    name: '<',
+    size: '<',
+    filled: '<',
+  },
+  template: \`
+    <ng-switch on="$ctrl.name">
+      ${components.join('\n')}
+    </ng-switch>\`,
+  };`;
+
+  writeFile(`${targetDir}/angular/components/icon.component.js`, content);
 };

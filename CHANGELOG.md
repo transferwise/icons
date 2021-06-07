@@ -1,3 +1,80 @@
+# v2.9.0
+
+## Add Business category icons
+- `contract-services`
+- `cost-of-goods-sold`
+- `insurance`
+- `marketing`
+- `office-expenses`
+- `owners-withdrawal`
+- `rent`
+- `sales-and-royalties`
+- `software-and-web-hosting`
+- `tax`
+- `travel`
+
+# v2.8.0
+
+## Add Team icon
+
+# v2.7.0
+
+## Update Direct Debits icon
+
+- Previous `direct-debits` icon is renamed to `calendar`.
+- Adds new `direct-debits` icon.
+
+# v2.6.0
+
+## Updates payment method icons
+
+Adds iDEAL, Trustly and FPX. Updates Klarna.
+
+# v2.5.1
+
+## Adds focusable="false" to SVGs
+
+IE11 doesn't support tabindex for SVGs, as a result they appear in the focus order by default and keyboard users will tab into them, resulting in a disorienting experience. Adding this property fixes that.
+
+See: https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html
+
+# v2.5.0
+
+## Add filled version of pending-circle
+
+# v2.4.2
+
+## Folder restructure
+
+- `icons/` -> `src/icons`
+- `scripts/` -> `src/build-scripts`
+
+# v2.4.1
+
+## Migrate on `main` branch
+
+# v2.4.0
+
+## Add `data-testid` prop for React icon components
+
+# v2.3.0
+
+## Generic icon component for Angular set
+
+Example:
+
+```js
+<tw-icon name="'bank'" size="24"></tw-icon>
+```
+
+# v2.2.0
+
+## Use 16 size as default for angular icons components
+
+# v2.1.0
+
+## Use babel to transpile angular bundle
+
 # v2.0.1
 
 ## Demo page for the icons
@@ -23,7 +100,7 @@ The demo page allows consumers to preview icons in different variants and the ma
 
 ## Add common `tw-icon` class name to angular component template
 
-Add `tw-icon` class, that was missing from the template that is used to generate all the angularJS commponents. 
+Add `tw-icon` class, that was missing from the template that is used to generate all the angularJS commponents.
 Now each angularJS component will have the general class name and the scoped one: e.g. `tw-icon tw-icon-activity`
 
 # v2.0.0-beta.4
