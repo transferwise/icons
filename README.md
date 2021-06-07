@@ -7,10 +7,7 @@
 
 ![transferwise-icons-github-readme](https://user-images.githubusercontent.com/47105236/81312233-b1ba1080-9086-11ea-9f99-ae754b3387fe.png)
 
-<!-- 
-# Demo page of icons
-TODO: Add demo link here once it's deployed to github pages 
--->
+Check out the [Live Demo](https://transferwise.github.io/icons/)
 
 Set of SVG icons designed and built by TransferWise and distributed as React and AngularJS components.
 Each Icon is designed in two sizes: **`16`** and **`24`** pixels.

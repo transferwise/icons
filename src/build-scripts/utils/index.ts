@@ -9,6 +9,7 @@ export const GENERATED_CODE_COMMENT = `// This is an automatically generetad fil
 
 export interface Icon {
   name: string;
+  oldName?: string;
   componentName: string;
   sizes: number[];
   svgFiles: {

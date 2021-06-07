@@ -15,3 +15,7 @@ build
 
 # icons library modules
 lib
+
+# next.js
+.next
+demo

@@ -36,6 +36,22 @@ jobs:
           root: .
           paths:
             - '*'
+  demo:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build Demo page
+          command: yarn demo:build
+      - run:
+          name: Deploy Demo page to Github pages
+          command: |
+            mkdir ~/.ssh
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
+            git config --global user.email "circleci@transferwise.com"
+            git config --global user.name "CircleCI"
+            yarn demo:deploy
   release:
     <<: *defaults
     steps:
@@ -87,6 +103,13 @@ workflows:
           context: frontend-publish
           requires:
             - test
+            - build
+          filters:
+            branches:
+              only: main
+      - demo:
+          context: frontend-publish
+          requires:
             - build
           filters:
             branches:

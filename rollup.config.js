@@ -27,6 +27,7 @@ const reactBundle = {
     typescript({
       // eslint-disable-next-line global-require
       typescript: require('typescript'),
+      tsconfig: 'tsconfig.lib.json',
     }),
     terser(),
     analyze({ summaryOnly: true }),

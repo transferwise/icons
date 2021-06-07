@@ -1,2 +1,9 @@
 build/**/*
 lib/**/*
+pages/**/*
+src-demo/**/*
+next-env.d.ts
+modules.d.ts
+public/**/*
+next.config.js
+postcss.config.js

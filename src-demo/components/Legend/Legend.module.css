@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.legend-container { 
+  display: flex;
+}
+.legend-container:not(:last-child) { 
+  margin-bottom: 4px;
+}
+.circle {
+  margin-right: 8px; 
+  margin-top: 1px;
+}
+.label {
+  font-size: 14px; 
+  color: var(--text-color);
+}
