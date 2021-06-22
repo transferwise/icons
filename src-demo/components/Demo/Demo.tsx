@@ -30,7 +30,7 @@ export const Demo: FunctionComponent = () => {
     <main className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.h1}>
-          TransferWise Icons
+          Wise Icons
           <span className="dot">.</span>
         </h1>
         <div className={styles.subheader}>{publicRuntimeConfig.libVersion}</div>
