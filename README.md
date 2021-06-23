@@ -1,4 +1,4 @@
-# [TransferWise icons](https://transferwise.github.io/icons)
+# [Wise icons](https://transferwise.github.io/icons)
 
 [![npm](https://img.shields.io/npm/v/@transferwise/icons.svg)](https://www.npmjs.com/package/@transferwise/icons)
 [![GitHub release](https://img.shields.io/github/release/transferwise/icons.svg)](https://github.com/transferwise/icons/releases)
@@ -9,7 +9,7 @@
 
 Check out the [Live Demo](https://transferwise.github.io/icons/)
 
-Set of SVG icons designed and built by TransferWise and distributed as React and AngularJS components.
+Set of SVG icons designed and built by Wise and distributed as React and AngularJS components.
 Each Icon is designed in two sizes: **`16`** and **`24`** pixels.
 The icon set has mostly **`outline`** icons but some of them also have **`filled`** variants.
 
@@ -91,7 +91,7 @@ import '@transferwise/icons/lib/styles/main.min.css';
 
 # Styling
 
-Each component has a general `.tw-icon` CSS class and a specific one that includes the icon's name in kebab-case, e.g `.tw-icon-card-transferwise`
+Each component has a general `.tw-icon` CSS class and a specific one that includes the icon's name in kebab-case, e.g `.tw-icon-card-wise`
 
 ### Coloring icons
 The CSS rule `color` cascades to the `<svg>` shapes, because each inline SVG shapes all have the `fill` property set to `currentColor`. More info about [Cascading SVG Fill Color](https://css-tricks.com/cascading-svg-fill-color/). You can set the color of the icons, by simply using the following CSS
@@ -126,7 +126,7 @@ The CSS rule `color` cascades to the `<svg>` shapes, because each inline SVG sha
 Each React icon component has an optional `title` property in case your icon has a semantic meaning, use this property, so it will be visible for Screen Readers.
 
 ```jsx
-<ActivityIcon size={24} title="TW card transcation" />
+<ActivityIcon size={24} title="Wise card transcation" />
 ```
 
 By default icon will be removed from accessibility tree as [`aria-hidden="true"`](https://www.w3.org/TR/wai-aria-1.1/#aria-hidden) and [`role="presentation""`](https://www.w3.org/TR/using-aria/#presentation) attributes will be added.
@@ -149,7 +149,3 @@ Follow these steps, if you'd like to contribute to the project:
 1. Submit your pull request from a feature branch and get code reviewed.
 1. If the pull request is approved and the [CircleCI build](https://circleci.com/gh/transferwise/icons) passes, you will be able to squash and merge.
 1. Code will automatically be released to [GitHub](https://github.com/transferwise/icons/releases) and published to [npm](https://www.npmjs.com/package/@transferwise/icons) with the version specified in the changelog and package file.
-
-
-# TransferWise Icons v1
-You can find the documentation of v1 icons library [here](https://github.com/transferwise/icons/blob/f2d4b29847b3fa9ca488dac8acd5e2b75fc74291/README.md).

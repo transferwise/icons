@@ -1,3 +1,26 @@
+# v2.10.0
+
+## New version of icon for Wise Card icon
+
+New Icon usage
+```js
+// Angular
+<tw-card-wise />
+
+// React
+<CardWise />
+```
+
+**Note:** Please use it it instead of old one
+
+```js
+// Angular
+<tw-card-transferwise />
+
+// React
+<CardTransferwise />
+```
+
 # v2.9.0
 
 ## Add Business category icons
