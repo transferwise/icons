@@ -1,3 +1,7 @@
+# v2.11.0
+
+## New Shield icon
+
 # v2.10.0
 
 ## New version of icon for Wise Card icon
