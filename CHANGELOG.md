@@ -1,3 +1,7 @@
+# v2.12.0
+
+## New Navigate Away icon
+
 # v2.11.0
 
 ## New Shield icon
