@@ -1,3 +1,7 @@
+# v2.13.0
+
+## New Email & Phone icon
+
 # v2.12.0
 
 ## New Navigate Away icon
