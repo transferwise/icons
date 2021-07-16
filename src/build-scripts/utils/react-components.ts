@@ -68,6 +68,24 @@ export const ${icon.componentName}: FunctionComponent<${
 `;
 };
 
+export const generateIconLookup = (icons: IconsMap, targetDir: string): void => {
+  const output: string[] = [GENERATED_CODE_COMMENT];
+
+  // Imports
+  Object.values(icons).forEach(icon => {
+    output.push(`import { ${icon.componentName} } from './components/${icon.name}';`);
+  });
+
+  // Map
+  output.push('export default {');
+  Object.values(icons).forEach(icon => {
+    output.push(`  '${icon.name}': ${icon.componentName},`);
+  });
+  output.push('}');
+
+  writeFile(`${targetDir}/lookup.ts`, output.join('\n'));
+};
+
 export const generateAdditionalReactFiles = (icons: IconsMap, targetDir: string): void => {
   // Create index file that exports all the icons in the components folder
   const exportComponents = Object.keys(icons)
@@ -76,11 +94,20 @@ export const generateAdditionalReactFiles = (icons: IconsMap, targetDir: string)
   writeFile(`${targetDir}/components/index.ts`, exportComponents);
 
   // Create index file in ./${targetDir} folder for exporting everyhting from ./${targetDir}/components
-  writeFile(`${targetDir}/index.ts`, `${GENERATED_CODE_COMMENT}\nexport * from "./components";`);
+  writeFile(
+    `${targetDir}/index.ts`,
+    [
+      GENERATED_CODE_COMMENT,
+      `export * from "./components";`,
+      `export { default as lookup } from './lookup';`,
+    ].join('\n'),
+  );
 
   // Create types file that exports common types
   writeFile(
     `${targetDir}/types.ts`,
     `${GENERATED_CODE_COMMENT}\nexport type IconSize = "16" | "24" | 16 | 24;`,
   );
+
+  generateIconLookup(icons, targetDir);
 };
